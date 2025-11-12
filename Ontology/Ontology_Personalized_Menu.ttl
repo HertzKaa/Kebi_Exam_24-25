@@ -1,0 +1,2578 @@
+@prefix : <http://example.org/pm#> .
+@prefix pm: <http://example.org/pm#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://example.org/pm#> .
+
+<http://example.org/pm#> rdf:type owl:Ontology ;
+                          rdfs:label "Personalized Menu Ontology v3" .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled
+<http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://example.org/pm#GuestHasFoodType
+pm:GuestHasFoodType rdf:type owl:ObjectProperty ;
+                    rdfs:domain pm:Guest ;
+                    rdfs:range pm:GuestFoodTypePreference .
+
+
+###  http://example.org/pm#IngredientNotCompatibleWithFoodTypePreference
+pm:IngredientNotCompatibleWithFoodTypePreference rdf:type owl:ObjectProperty ;
+                                                 rdfs:domain pm:Ingredient ;
+                                                 rdfs:range pm:GuestFoodTypePreference .
+
+
+###  http://example.org/pm#IngredientUsageInMeal
+pm:IngredientUsageInMeal rdf:type owl:ObjectProperty ;
+                         rdfs:domain pm:IngredientUsage ;
+                         rdfs:range pm:Meal .
+
+
+###  http://example.org/pm#MealNotCompatibleWithFoodPreference
+pm:MealNotCompatibleWithFoodPreference rdf:type owl:ObjectProperty ;
+                                       rdfs:domain pm:Meal ;
+                                       rdfs:range pm:GuestFoodPreference .
+
+
+###  http://example.org/pm#UsedIngredient
+pm:UsedIngredient rdf:type owl:ObjectProperty ;
+                  rdfs:domain pm:IngredientUsage ;
+                  rdfs:range pm:Ingredient .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://example.org/pm#IngredientHasCalories
+pm:IngredientHasCalories rdf:type owl:DatatypeProperty ;
+                         rdfs:domain pm:Ingredient ;
+                         rdfs:range xsd:decimal .
+
+
+###  http://example.org/pm#IngredientUsageInGrams
+pm:IngredientUsageInGrams rdf:type owl:DatatypeProperty ;
+                          rdfs:domain pm:IngredientUsage ;
+                          rdfs:range xsd:decimal .
+
+
+###  http://example.org/pm#MealHasCalories
+pm:MealHasCalories rdf:type owl:DatatypeProperty ;
+                   rdfs:domain pm:Meal ;
+                   rdfs:range xsd:decimal .
+
+
+###  http://example.org/pm#ObjectHasName
+pm:ObjectHasName rdf:type owl:DatatypeProperty ;
+                 rdfs:domain owl:Thing ;
+                 rdfs:range xsd:string .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://example.org/pm#Allergen
+pm:Allergen rdf:type owl:Class ;
+            rdfs:subClassOf pm:GuestFoodTypePreference .
+
+
+###  http://example.org/pm#Diet
+pm:Diet rdf:type owl:Class ;
+        rdfs:subClassOf pm:GuestFoodTypePreference .
+
+
+###  http://example.org/pm#Guest
+pm:Guest rdf:type owl:Class .
+
+
+###  http://example.org/pm#GuestCaloricPreference
+pm:GuestCaloricPreference rdf:type owl:Class ;
+                          rdfs:subClassOf pm:GuestFoodPreference .
+
+
+###  http://example.org/pm#GuestFoodPreference
+pm:GuestFoodPreference rdf:type owl:Class .
+
+
+###  http://example.org/pm#GuestFoodTypePreference
+pm:GuestFoodTypePreference rdf:type owl:Class ;
+                           rdfs:subClassOf pm:GuestFoodPreference .
+
+
+###  http://example.org/pm#Ingredient
+pm:Ingredient rdf:type owl:Class .
+
+
+###  http://example.org/pm#IngredientUsage
+pm:IngredientUsage rdf:type owl:Class .
+
+
+###  http://example.org/pm#Meal
+pm:Meal rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://example.org/pm#Calorie_Conscious
+pm:Calorie_Conscious rdf:type owl:NamedIndividual ,
+                              pm:GuestCaloricPreference .
+
+
+###  http://example.org/pm#Claudio
+pm:Claudio rdf:type owl:NamedIndividual ,
+                    pm:Guest ;
+           pm:GuestHasFoodType pm:avoidNuts ,
+                               pm:carnivore ;
+           pm:ObjectHasName "Claudio" .
+
+
+###  http://example.org/pm#Fabio
+pm:Fabio rdf:type owl:NamedIndividual ,
+                  pm:Guest ;
+         pm:GuestHasFoodType pm:avoidShellfish ,
+                             pm:carnivore ;
+         pm:ObjectHasName "Fabio" .
+
+
+###  http://example.org/pm#Lorenzo
+pm:Lorenzo rdf:type owl:NamedIndividual ,
+                    pm:Guest ;
+           pm:GuestHasFoodType pm:vegan ;
+           pm:ObjectHasName "Lorenzo" .
+
+
+###  http://example.org/pm#Maria
+pm:Maria rdf:type owl:NamedIndividual ,
+                  pm:Guest ;
+         pm:GuestHasFoodType pm:avoidGluten ,
+                             pm:vegetarian ;
+         pm:ObjectHasName "Maria" .
+
+
+###  http://example.org/pm#almond_milk_drink
+pm:almond_milk_drink rdf:type owl:NamedIndividual ,
+                              pm:Meal ;
+                     pm:MealNotCompatibleWithFoodPreference pm:avoidNuts ;
+                     pm:MealHasCalories 288.6 ;
+                     pm:ObjectHasName "Almond Milk Drink" .
+
+
+###  http://example.org/pm#almonds
+pm:almonds rdf:type owl:NamedIndividual ,
+                    pm:Ingredient ;
+           pm:IngredientNotCompatibleWithFoodTypePreference pm:avoidNuts ;
+           pm:IngredientHasCalories 575 ;
+           pm:ObjectHasName "almonds" .
+
+
+###  http://example.org/pm#avoidDairy
+pm:avoidDairy rdf:type owl:NamedIndividual ,
+                       pm:Allergen .
+
+
+###  http://example.org/pm#avoidEggs
+pm:avoidEggs rdf:type owl:NamedIndividual ,
+                      pm:Allergen .
+
+
+###  http://example.org/pm#avoidGluten
+pm:avoidGluten rdf:type owl:NamedIndividual ,
+                        pm:Allergen .
+
+
+###  http://example.org/pm#avoidNuts
+pm:avoidNuts rdf:type owl:NamedIndividual ,
+                      pm:Allergen .
+
+
+###  http://example.org/pm#avoidShellfish
+pm:avoidShellfish rdf:type owl:NamedIndividual ,
+                           pm:Allergen .
+
+
+###  http://example.org/pm#bacon
+pm:bacon rdf:type owl:NamedIndividual ,
+                  pm:Ingredient ;
+         pm:IngredientNotCompatibleWithFoodTypePreference pm:vegetarian ;
+         pm:IngredientHasCalories 541 ;
+         pm:ObjectHasName "bacon" .
+
+
+###  http://example.org/pm#bacon_onion_pizza
+pm:bacon_onion_pizza rdf:type owl:NamedIndividual ,
+                              pm:Meal ;
+                     pm:MealHasCalories 1422.1 ;
+                     pm:ObjectHasName "Bacon & Onion Pizza" .
+
+
+###  http://example.org/pm#bacon_wrapped_chicken
+pm:bacon_wrapped_chicken rdf:type owl:NamedIndividual ,
+                                  pm:Meal ;
+                         pm:MealHasCalories 720.0 ;
+                         pm:ObjectHasName "Bacon-Wrapped Chicken" .
+
+
+###  http://example.org/pm#baked_sea_bass
+pm:baked_sea_bass rdf:type owl:NamedIndividual ,
+                           pm:Meal ;
+                  pm:MealHasCalories 251.0 ;
+                  pm:ObjectHasName "Baked Sea Bass" .
+
+
+###  http://example.org/pm#basil
+pm:basil rdf:type owl:NamedIndividual ,
+                  pm:Ingredient ;
+         pm:IngredientHasCalories 23 ;
+         pm:ObjectHasName "basil" .
+
+
+###  http://example.org/pm#beef
+pm:beef rdf:type owl:NamedIndividual ,
+                 pm:Ingredient ;
+        pm:IngredientNotCompatibleWithFoodTypePreference pm:vegan ,
+                                                         pm:vegetarian ;
+        pm:IngredientHasCalories 250 ;
+        pm:ObjectHasName "beef" .
+
+
+###  http://example.org/pm#beef_steak_with_veggies
+pm:beef_steak_with_veggies rdf:type owl:NamedIndividual ,
+                                    pm:Meal ;
+                           pm:MealHasCalories 643.7 ;
+                           pm:ObjectHasName "Beef Steak with Veggies" .
+
+
+###  http://example.org/pm#black_pepper
+pm:black_pepper rdf:type owl:NamedIndividual ,
+                         pm:Ingredient ;
+                pm:IngredientHasCalories 251 ;
+                pm:ObjectHasName "black_pepper" .
+
+
+###  http://example.org/pm#butter
+pm:butter rdf:type owl:NamedIndividual ,
+                   pm:Ingredient ;
+          pm:IngredientNotCompatibleWithFoodTypePreference pm:vegan ;
+          pm:IngredientHasCalories 717 ;
+          pm:ObjectHasName "butter" .
+
+
+###  http://example.org/pm#carnivore
+pm:carnivore rdf:type owl:NamedIndividual ,
+                      pm:Diet .
+
+
+###  http://example.org/pm#carrot
+pm:carrot rdf:type owl:NamedIndividual ,
+                   pm:Ingredient ;
+          pm:IngredientHasCalories 41 ;
+          pm:ObjectHasName "carrot" .
+
+
+###  http://example.org/pm#champignon
+pm:champignon rdf:type owl:NamedIndividual ,
+                       pm:Ingredient ;
+              pm:IngredientHasCalories 22 ;
+              pm:ObjectHasName "champignon" .
+
+
+###  http://example.org/pm#cheese
+pm:cheese rdf:type owl:NamedIndividual ,
+                   pm:Ingredient ;
+          pm:IngredientNotCompatibleWithFoodTypePreference pm:vegan ;
+          pm:IngredientHasCalories 402 ;
+          pm:ObjectHasName "cheese" .
+
+
+###  http://example.org/pm#chicken
+pm:chicken rdf:type owl:NamedIndividual ,
+                    pm:Ingredient ;
+           pm:IngredientNotCompatibleWithFoodTypePreference pm:vegan ,
+                                                            pm:vegetarian ;
+           pm:IngredientHasCalories 239 ;
+           pm:ObjectHasName "chicken" .
+
+
+###  http://example.org/pm#chicken_with_rice
+pm:chicken_with_rice rdf:type owl:NamedIndividual ,
+                              pm:Meal ;
+                     pm:MealHasCalories 641.7 ;
+                     pm:ObjectHasName "Chicken with Rice" .
+
+
+###  http://example.org/pm#chili
+pm:chili rdf:type owl:NamedIndividual ,
+                  pm:Ingredient ;
+         pm:IngredientHasCalories 40 ;
+         pm:ObjectHasName "chili" .
+
+
+###  http://example.org/pm#chocolate_almond_bark
+pm:chocolate_almond_bark rdf:type owl:NamedIndividual ,
+                                  pm:Meal ;
+                         pm:MealNotCompatibleWithFoodPreference pm:avoidNuts ;
+                         pm:MealHasCalories 540.8 ;
+                         pm:ObjectHasName "Chocolate Almond Bark" .
+
+
+###  http://example.org/pm#clams
+pm:clams rdf:type owl:NamedIndividual ,
+                  pm:Ingredient ;
+         pm:IngredientNotCompatibleWithFoodTypePreference pm:avoidShellfish ,
+                                                          pm:vegan ,
+                                                          pm:vegetarian ;
+         pm:IngredientHasCalories 148 ;
+         pm:ObjectHasName "clams" .
+
+
+###  http://example.org/pm#coffee
+pm:coffee rdf:type owl:NamedIndividual ,
+                   pm:Ingredient ,
+                   pm:Meal ;
+          pm:MealNotCompatibleWithFoodPreference pm:avoidDairy ;
+          pm:IngredientHasCalories 1 ;
+          pm:MealHasCalories 200.1 ;
+          pm:ObjectHasName "Coffee" .
+
+
+###  http://example.org/pm#cream
+pm:cream rdf:type owl:NamedIndividual ,
+                  pm:Ingredient ;
+         pm:IngredientNotCompatibleWithFoodTypePreference pm:vegan ;
+         pm:IngredientHasCalories 340 ;
+         pm:ObjectHasName "cream" .
+
+
+###  http://example.org/pm#dark_chocolate
+pm:dark_chocolate rdf:type owl:NamedIndividual ,
+                           pm:Ingredient ;
+                  pm:IngredientHasCalories 546 ;
+                  pm:ObjectHasName "dark_chocolate" .
+
+
+###  http://example.org/pm#duck
+pm:duck rdf:type owl:NamedIndividual ,
+                 pm:Ingredient ;
+        pm:IngredientNotCompatibleWithFoodTypePreference pm:vegan ,
+                                                         pm:vegetarian ;
+        pm:IngredientHasCalories 337 ;
+        pm:ObjectHasName "duck" .
+
+
+###  http://example.org/pm#duck_with_orange_sauce
+pm:duck_with_orange_sauce rdf:type owl:NamedIndividual ,
+                                   pm:Meal ;
+                          pm:MealHasCalories 934.9 ;
+                          pm:ObjectHasName "Duck with Orange Sauce" .
+
+
+###  http://example.org/pm#egg
+pm:egg rdf:type owl:NamedIndividual ,
+                pm:Ingredient ;
+       pm:IngredientHasCalories 155 ;
+       pm:ObjectHasName "egg" .
+
+
+###  http://example.org/pm#eggplant
+pm:eggplant rdf:type owl:NamedIndividual ,
+                     pm:Ingredient ;
+            pm:IngredientHasCalories 25 ;
+            pm:ObjectHasName "eggplant" .
+
+
+###  http://example.org/pm#eggplant_pizza
+pm:eggplant_pizza rdf:type owl:NamedIndividual ,
+                           pm:Meal ;
+                  pm:MealHasCalories 1157.1 ;
+                  pm:ObjectHasName "Eggplant Pizza" .
+
+
+###  http://example.org/pm#eggplant_stuffed
+pm:eggplant_stuffed rdf:type owl:NamedIndividual ,
+                             pm:Meal ;
+                    pm:MealHasCalories 568.3 ;
+                    pm:ObjectHasName "Eggplant Stuffed" .
+
+
+###  http://example.org/pm#eggs
+pm:eggs rdf:type owl:NamedIndividual ,
+                 pm:Ingredient ;
+        pm:IngredientNotCompatibleWithFoodTypePreference pm:avoidEggs ,
+                                                         pm:vegan ;
+        pm:IngredientHasCalories 155 ;
+        pm:ObjectHasName "eggs" .
+
+
+###  http://example.org/pm#flour
+pm:flour rdf:type owl:NamedIndividual ,
+                  pm:Ingredient ;
+         pm:IngredientNotCompatibleWithFoodTypePreference pm:avoidGluten ;
+         pm:IngredientHasCalories 364 ;
+         pm:ObjectHasName "flour" .
+
+
+###  http://example.org/pm#four_cheese_pizza
+pm:four_cheese_pizza rdf:type owl:NamedIndividual ,
+                              pm:Meal ;
+                     pm:MealHasCalories 1514.4 ;
+                     pm:ObjectHasName "Four Cheese Pizza" .
+
+
+###  http://example.org/pm#garlic
+pm:garlic rdf:type owl:NamedIndividual ,
+                   pm:Ingredient ;
+          pm:IngredientHasCalories 149 ;
+          pm:ObjectHasName "garlic" .
+
+
+###  http://example.org/pm#gnocchi_di_patate
+pm:gnocchi_di_patate rdf:type owl:NamedIndividual ,
+                              pm:Meal ;
+                     pm:MealNotCompatibleWithFoodPreference pm:avoidEggs ,
+                                                            pm:avoidGluten ;
+                     pm:MealHasCalories 1064.4 ;
+                     pm:ObjectHasName "Gnocchi di Patate" .
+
+
+###  http://example.org/pm#grilled_clams
+pm:grilled_clams rdf:type owl:NamedIndividual ,
+                          pm:Meal ;
+                 pm:MealNotCompatibleWithFoodPreference pm:avoidShellfish ;
+                 pm:MealHasCalories 267.6 ;
+                 pm:ObjectHasName "Grilled Clams" .
+
+
+###  http://example.org/pm#grilled_salmon
+pm:grilled_salmon rdf:type owl:NamedIndividual ,
+                           pm:Meal ;
+                  pm:MealHasCalories 417.5 ;
+                  pm:ObjectHasName "Grilled Salmon" .
+
+
+###  http://example.org/pm#ham
+pm:ham rdf:type owl:NamedIndividual ,
+                pm:Ingredient ;
+       pm:IngredientNotCompatibleWithFoodTypePreference pm:vegan ,
+                                                        pm:vegetarian ;
+       pm:IngredientHasCalories 145 ;
+       pm:ObjectHasName "ham" .
+
+
+###  http://example.org/pm#ham_mushroom_pizza
+pm:ham_mushroom_pizza rdf:type owl:NamedIndividual ,
+                               pm:Meal ;
+                      pm:MealNotCompatibleWithFoodPreference pm:avoidDairy ,
+                                                             pm:avoidGluten ;
+                      pm:MealHasCalories 1214.1 ;
+                      pm:ObjectHasName "Ham & Mushroom Pizza" .
+
+
+###  http://example.org/pm#ice
+pm:ice rdf:type owl:NamedIndividual ,
+                pm:Ingredient ;
+       pm:IngredientHasCalories 0 ;
+       pm:ObjectHasName "ice" .
+
+
+###  http://example.org/pm#iced_coffee
+pm:iced_coffee rdf:type owl:NamedIndividual ,
+                        pm:Meal ;
+               pm:MealHasCalories 200.1 ;
+               pm:ObjectHasName "Iced Coffee" .
+
+
+###  http://example.org/pm#ladyfinger
+pm:ladyfinger rdf:type owl:NamedIndividual ,
+                       pm:Ingredient ;
+              pm:IngredientNotCompatibleWithFoodTypePreference pm:avoidGluten ,
+                                                               pm:vegan ;
+              pm:IngredientHasCalories 389 ;
+              pm:ObjectHasName "ladyfinger" .
+
+
+###  http://example.org/pm#lemon
+pm:lemon rdf:type owl:NamedIndividual ,
+                  pm:Ingredient ;
+         pm:IngredientHasCalories 29 ;
+         pm:ObjectHasName "lemon" .
+
+
+###  http://example.org/pm#margherita_pizza
+pm:margherita_pizza rdf:type owl:NamedIndividual ,
+                             pm:Meal ;
+                    pm:MealHasCalories 1120.8 ;
+                    pm:ObjectHasName "Margherita Pizza" .
+
+
+###  http://example.org/pm#mascarpone
+pm:mascarpone rdf:type owl:NamedIndividual ,
+                       pm:Ingredient ;
+              pm:IngredientNotCompatibleWithFoodTypePreference pm:avoidDairy ;
+              pm:IngredientHasCalories 435 ;
+              pm:ObjectHasName "mascarpone" .
+
+
+###  http://example.org/pm#milk
+pm:milk rdf:type owl:NamedIndividual ,
+                 pm:Ingredient ;
+        pm:IngredientNotCompatibleWithFoodTypePreference pm:avoidDairy ,
+                                                         pm:vegan ;
+        pm:IngredientHasCalories 42 ;
+        pm:ObjectHasName "milk" .
+
+
+###  http://example.org/pm#mozzarella
+pm:mozzarella rdf:type owl:NamedIndividual ,
+                       pm:Ingredient ;
+              pm:IngredientNotCompatibleWithFoodTypePreference pm:avoidDairy ,
+                                                               pm:vegan ;
+              pm:IngredientHasCalories 280 ;
+              pm:ObjectHasName "mozzarella" .
+
+
+###  http://example.org/pm#oil
+pm:oil rdf:type owl:NamedIndividual ,
+                pm:Ingredient ;
+       pm:IngredientHasCalories 884 ;
+       pm:ObjectHasName "oil" .
+
+
+###  http://example.org/pm#onion
+pm:onion rdf:type owl:NamedIndividual ,
+                  pm:Ingredient ;
+         pm:IngredientHasCalories 40 ;
+         pm:ObjectHasName "onion" .
+
+
+###  http://example.org/pm#orange
+pm:orange rdf:type owl:NamedIndividual ,
+                   pm:Ingredient ;
+          pm:IngredientHasCalories 47 ;
+          pm:ObjectHasName "orange" .
+
+
+###  http://example.org/pm#parmesan
+pm:parmesan rdf:type owl:NamedIndividual ,
+                     pm:Ingredient ;
+            pm:IngredientNotCompatibleWithFoodTypePreference pm:avoidDairy ;
+            pm:IngredientHasCalories 431 ;
+            pm:ObjectHasName "parmesan" .
+
+
+###  http://example.org/pm#parsley
+pm:parsley rdf:type owl:NamedIndividual ,
+                    pm:Ingredient ;
+           pm:IngredientHasCalories 36 ;
+           pm:ObjectHasName "parsley" .
+
+
+###  http://example.org/pm#pasta
+pm:pasta rdf:type owl:NamedIndividual ,
+                  pm:Ingredient ;
+         pm:IngredientNotCompatibleWithFoodTypePreference pm:avoidGluten ;
+         pm:IngredientHasCalories 131 ;
+         pm:ObjectHasName "pasta" .
+
+
+###  http://example.org/pm#pasta_al_pesto
+pm:pasta_al_pesto rdf:type owl:NamedIndividual ,
+                           pm:Meal ;
+                  pm:MealNotCompatibleWithFoodPreference pm:avoidGluten ;
+                  pm:MealHasCalories 536.1 ;
+                  pm:ObjectHasName "Pasta al Pesto" .
+
+
+###  http://example.org/pm#pasta_al_pomodoro
+pm:pasta_al_pomodoro rdf:type owl:NamedIndividual ,
+                              pm:Meal ;
+                     pm:MealNotCompatibleWithFoodPreference pm:avoidGluten ;
+                     pm:MealHasCalories 258.6 ;
+                     pm:ObjectHasName "Pasta al Pomodoro" .
+
+
+###  http://example.org/pm#pasta_al_salmone
+pm:pasta_al_salmone rdf:type owl:NamedIndividual ,
+                             pm:Meal ;
+                    pm:MealNotCompatibleWithFoodPreference pm:avoidGluten ;
+                    pm:MealHasCalories 692.3 ;
+                    pm:ObjectHasName "Pasta al Salmone" .
+
+
+###  http://example.org/pm#pasta_al_tartufo
+pm:pasta_al_tartufo rdf:type owl:NamedIndividual ,
+                             pm:Meal ;
+                    pm:MealNotCompatibleWithFoodPreference pm:avoidGluten ;
+                    pm:MealHasCalories 247.8 ;
+                    pm:ObjectHasName "Pasta al Tartufo" .
+
+
+###  http://example.org/pm#pasta_alla_bolognese
+pm:pasta_alla_bolognese rdf:type owl:NamedIndividual ,
+                                 pm:Meal ;
+                        pm:MealNotCompatibleWithFoodPreference pm:avoidGluten ;
+                        pm:MealHasCalories 594.0 ;
+                        pm:ObjectHasName "Pasta alla Bolognese" .
+
+
+###  http://example.org/pm#peach
+pm:peach rdf:type owl:NamedIndividual ,
+                  pm:Ingredient ;
+         pm:IngredientHasCalories 39 ;
+         pm:ObjectHasName "peach" .
+
+
+###  http://example.org/pm#peach_almond_pizza
+pm:peach_almond_pizza rdf:type owl:NamedIndividual ,
+                               pm:Meal ;
+                      pm:MealNotCompatibleWithFoodPreference pm:avoidNuts ;
+                      pm:MealHasCalories 1431.8 ;
+                      pm:ObjectHasName "Peach & Almond Pizza" .
+
+
+###  http://example.org/pm#peach_compote
+pm:peach_compote rdf:type owl:NamedIndividual ,
+                          pm:Meal ;
+                 pm:MealHasCalories 177.4 ;
+                 pm:ObjectHasName "Peach Compote" .
+
+
+###  http://example.org/pm#peach_smoothie
+pm:peach_smoothie rdf:type owl:NamedIndividual ,
+                           pm:Meal ;
+                  pm:MealHasCalories 162.9 ;
+                  pm:ObjectHasName "Peach Smoothie" .
+
+
+###  http://example.org/pm#peas
+pm:peas rdf:type owl:NamedIndividual ,
+                 pm:Ingredient ;
+        pm:IngredientHasCalories 81 ;
+        pm:ObjectHasName "peas" .
+
+
+###  http://example.org/pm#pecorino
+pm:pecorino rdf:type owl:NamedIndividual ,
+                     pm:Ingredient ;
+            pm:IngredientNotCompatibleWithFoodTypePreference pm:avoidDairy ;
+            pm:IngredientHasCalories 387 ;
+            pm:ObjectHasName "pecorino" .
+
+
+###  http://example.org/pm#penne_all_arrabbiata
+pm:penne_all_arrabbiata rdf:type owl:NamedIndividual ,
+                                 pm:Meal ;
+                        pm:MealHasCalories 259.5 ;
+                        pm:ObjectHasName "Penne all’Arrabbiata" .
+
+
+###  http://example.org/pm#pepperoni_pizza
+pm:pepperoni_pizza rdf:type owl:NamedIndividual ,
+                            pm:Meal ;
+                   pm:MealHasCalories 1360.4 ;
+                   pm:ObjectHasName "Pepperoni Pizza" .
+
+
+###  http://example.org/pm#potato
+pm:potato rdf:type owl:NamedIndividual ,
+                   pm:Ingredient ;
+          pm:IngredientHasCalories 77 ;
+          pm:ObjectHasName "potato" .
+
+
+###  http://example.org/pm#ravioli_di_ricotta
+pm:ravioli_di_ricotta rdf:type owl:NamedIndividual ,
+                               pm:Meal ;
+                      pm:MealNotCompatibleWithFoodPreference pm:avoidDairy ;
+                      pm:MealHasCalories 511.1 ;
+                      pm:ObjectHasName "Ravioli di Ricotta" .
+
+
+###  http://example.org/pm#rice
+pm:rice rdf:type owl:NamedIndividual ,
+                 pm:Ingredient ;
+        pm:IngredientHasCalories 130 ;
+        pm:ObjectHasName "rice" .
+
+
+###  http://example.org/pm#ricotta
+pm:ricotta rdf:type owl:NamedIndividual ,
+                    pm:Ingredient ;
+           pm:IngredientNotCompatibleWithFoodTypePreference pm:avoidDairy ;
+           pm:IngredientHasCalories 174 ;
+           pm:ObjectHasName "ricotta" .
+
+
+###  http://example.org/pm#ricotta_cake
+pm:ricotta_cake rdf:type owl:NamedIndividual ,
+                         pm:Meal ;
+                pm:MealNotCompatibleWithFoodPreference pm:avoidDairy ;
+                pm:MealHasCalories 1149.2 ;
+                pm:ObjectHasName "Ricotta Cake" .
+
+
+###  http://example.org/pm#risotto_ai_funghi
+pm:risotto_ai_funghi rdf:type owl:NamedIndividual ,
+                              pm:Meal ;
+                     pm:MealHasCalories 272.4 ;
+                     pm:ObjectHasName "Risotto ai Funghi" .
+
+
+###  http://example.org/pm#roast_duck
+pm:roast_duck rdf:type owl:NamedIndividual ,
+                       pm:Meal ;
+              pm:MealHasCalories 765.0 ;
+              pm:ObjectHasName "Roast Duck" .
+
+
+###  http://example.org/pm#rosemary
+pm:rosemary rdf:type owl:NamedIndividual ,
+                     pm:Ingredient ;
+            pm:IngredientHasCalories 131 ;
+            pm:ObjectHasName "rosemary" .
+
+
+###  http://example.org/pm#salmon
+pm:salmon rdf:type owl:NamedIndividual ,
+                   pm:Ingredient ;
+          pm:IngredientNotCompatibleWithFoodTypePreference pm:vegan ,
+                                                           pm:vegetarian ;
+          pm:IngredientHasCalories 208 ;
+          pm:ObjectHasName "salmon" .
+
+
+###  http://example.org/pm#salmon_pizza
+pm:salmon_pizza rdf:type owl:NamedIndividual ,
+                         pm:Meal ;
+                pm:MealHasCalories 1431.6 ;
+                pm:ObjectHasName "Salmon Pizza" .
+
+
+###  http://example.org/pm#salt
+pm:salt rdf:type owl:NamedIndividual ,
+                 pm:Ingredient ;
+        pm:IngredientHasCalories 0 ;
+        pm:ObjectHasName "salt" .
+
+
+###  http://example.org/pm#sausage
+pm:sausage rdf:type owl:NamedIndividual ,
+                    pm:Ingredient ;
+           pm:IngredientNotCompatibleWithFoodTypePreference pm:vegan ,
+                                                            pm:vegetarian ;
+           pm:IngredientHasCalories 301 ;
+           pm:ObjectHasName "sausage" .
+
+
+###  http://example.org/pm#sausage_with_peas
+pm:sausage_with_peas rdf:type owl:NamedIndividual ,
+                              pm:Meal ;
+                     pm:MealHasCalories 426.0 ;
+                     pm:ObjectHasName "Sausage with Peas" .
+
+
+###  http://example.org/pm#seabass
+pm:seabass rdf:type owl:NamedIndividual ,
+                    pm:Ingredient ;
+           pm:IngredientNotCompatibleWithFoodTypePreference pm:vegan ,
+                                                            pm:vegetarian ;
+           pm:IngredientHasCalories 97 ;
+           pm:ObjectHasName "seabass" .
+
+
+###  http://example.org/pm#spaghetti_alla_carbonara
+pm:spaghetti_alla_carbonara rdf:type owl:NamedIndividual ,
+                                     pm:Meal ;
+                            pm:MealNotCompatibleWithFoodPreference pm:avoidGluten ;
+                            pm:MealHasCalories 613.3 ;
+                            pm:ObjectHasName "Spaghetti alla Carbonara" .
+
+
+###  http://example.org/pm#sparkling_lemonade
+pm:sparkling_lemonade rdf:type owl:NamedIndividual ,
+                               pm:Meal ;
+                      pm:MealHasCalories 130.6 ;
+                      pm:ObjectHasName "Sparkling Lemonade" .
+
+
+###  http://example.org/pm#sparkling_water
+pm:sparkling_water rdf:type owl:NamedIndividual ,
+                            pm:Ingredient ;
+                   pm:IngredientHasCalories 0 ;
+                   pm:ObjectHasName "sparkling_water" .
+
+
+###  http://example.org/pm#strawberry
+pm:strawberry rdf:type owl:NamedIndividual ,
+                       pm:Ingredient ;
+              pm:IngredientHasCalories 32 ;
+              pm:ObjectHasName "strawberry" .
+
+
+###  http://example.org/pm#strawberry_almond_tart
+pm:strawberry_almond_tart rdf:type owl:NamedIndividual ,
+                                   pm:Meal ;
+                          pm:MealNotCompatibleWithFoodPreference pm:avoidNuts ;
+                          pm:MealHasCalories 1192.0 ;
+                          pm:ObjectHasName "Strawberry Almond Tart" .
+
+
+###  http://example.org/pm#sugar
+pm:sugar rdf:type owl:NamedIndividual ,
+                  pm:Ingredient ;
+         pm:IngredientHasCalories 387 ;
+         pm:ObjectHasName "sugar" .
+
+
+###  http://example.org/pm#tiramisu
+pm:tiramisu rdf:type owl:NamedIndividual ,
+                     pm:Meal ;
+            pm:MealNotCompatibleWithFoodPreference pm:avoidDairy ,
+                                                   pm:avoidEggs ;
+            pm:MealHasCalories 532.5 ;
+            pm:ObjectHasName "Tiramisu" .
+
+
+###  http://example.org/pm#tomato_sauce
+pm:tomato_sauce rdf:type owl:NamedIndividual ,
+                         pm:Ingredient ;
+                pm:IngredientHasCalories 29 ;
+                pm:ObjectHasName "tomato_sauce" .
+
+
+###  http://example.org/pm#truffle
+pm:truffle rdf:type owl:NamedIndividual ,
+                    pm:Ingredient ;
+           pm:IngredientHasCalories 284 ;
+           pm:ObjectHasName "truffle" .
+
+
+###  http://example.org/pm#truffle_pizza
+pm:truffle_pizza rdf:type owl:NamedIndividual ,
+                          pm:Meal ;
+                 pm:MealHasCalories 1124.8 ;
+                 pm:ObjectHasName "Truffle Pizza" .
+
+
+###  http://example.org/pm#usage_almond_milk_drink_almonds
+pm:usage_almond_milk_drink_almonds rdf:type owl:NamedIndividual ,
+                                            pm:IngredientUsage ;
+                                   pm:IngredientUsageInMeal pm:almond_milk_drink ;
+                                   pm:UsedIngredient pm:almonds ;
+                                   pm:IngredientUsageInGrams 30 .
+
+
+###  http://example.org/pm#usage_almond_milk_drink_sugar
+pm:usage_almond_milk_drink_sugar rdf:type owl:NamedIndividual ,
+                                          pm:IngredientUsage ;
+                                 pm:IngredientUsageInMeal pm:almond_milk_drink ;
+                                 pm:UsedIngredient pm:sugar ;
+                                 pm:IngredientUsageInGrams 30 .
+
+
+###  http://example.org/pm#usage_almond_milk_drink_water
+pm:usage_almond_milk_drink_water rdf:type owl:NamedIndividual ,
+                                          pm:IngredientUsage ;
+                                 pm:IngredientUsageInMeal pm:almond_milk_drink ;
+                                 pm:UsedIngredient pm:water ;
+                                 pm:IngredientUsageInGrams 200 .
+
+
+###  http://example.org/pm#usage_bacon_onion_pizza_bacon
+pm:usage_bacon_onion_pizza_bacon rdf:type owl:NamedIndividual ,
+                                          pm:IngredientUsage ;
+                                 pm:IngredientUsageInMeal pm:bacon_onion_pizza ;
+                                 pm:UsedIngredient pm:bacon ;
+                                 pm:IngredientUsageInGrams 50 .
+
+
+###  http://example.org/pm#usage_bacon_onion_pizza_flour
+pm:usage_bacon_onion_pizza_flour rdf:type owl:NamedIndividual ,
+                                          pm:IngredientUsage ;
+                                 pm:IngredientUsageInMeal pm:bacon_onion_pizza ;
+                                 pm:UsedIngredient pm:flour ;
+                                 pm:IngredientUsageInGrams 200 .
+
+
+###  http://example.org/pm#usage_bacon_onion_pizza_mozzarella
+pm:usage_bacon_onion_pizza_mozzarella rdf:type owl:NamedIndividual ,
+                                               pm:IngredientUsage ;
+                                      pm:IngredientUsageInMeal pm:bacon_onion_pizza ;
+                                      pm:UsedIngredient pm:mozzarella ;
+                                      pm:IngredientUsageInGrams 100 .
+
+
+###  http://example.org/pm#usage_bacon_onion_pizza_oil
+pm:usage_bacon_onion_pizza_oil rdf:type owl:NamedIndividual ,
+                                        pm:IngredientUsage ;
+                               pm:IngredientUsageInMeal pm:bacon_onion_pizza ;
+                               pm:UsedIngredient pm:oil ;
+                               pm:IngredientUsageInGrams 10 .
+
+
+###  http://example.org/pm#usage_bacon_onion_pizza_onion
+pm:usage_bacon_onion_pizza_onion rdf:type owl:NamedIndividual ,
+                                          pm:IngredientUsage ;
+                                 pm:IngredientUsageInMeal pm:bacon_onion_pizza ;
+                                 pm:UsedIngredient pm:onion ;
+                                 pm:IngredientUsageInGrams 80 .
+
+
+###  http://example.org/pm#usage_bacon_onion_pizza_tomato_sauce
+pm:usage_bacon_onion_pizza_tomato_sauce rdf:type owl:NamedIndividual ,
+                                                 pm:IngredientUsage ;
+                                        pm:IngredientUsageInMeal pm:bacon_onion_pizza ;
+                                        pm:UsedIngredient pm:tomato_sauce ;
+                                        pm:IngredientUsageInGrams 80 .
+
+
+###  http://example.org/pm#usage_bacon_wrapped_chicken_bacon
+pm:usage_bacon_wrapped_chicken_bacon rdf:type owl:NamedIndividual ,
+                                              pm:IngredientUsage ;
+                                     pm:IngredientUsageInMeal pm:bacon_wrapped_chicken ;
+                                     pm:UsedIngredient pm:bacon ;
+                                     pm:IngredientUsageInGrams 50 .
+
+
+###  http://example.org/pm#usage_bacon_wrapped_chicken_chicken
+pm:usage_bacon_wrapped_chicken_chicken rdf:type owl:NamedIndividual ,
+                                                pm:IngredientUsage ;
+                                       pm:IngredientUsageInMeal pm:bacon_wrapped_chicken ;
+                                       pm:UsedIngredient pm:chicken ;
+                                       pm:IngredientUsageInGrams 150 .
+
+
+###  http://example.org/pm#usage_bacon_wrapped_chicken_oil
+pm:usage_bacon_wrapped_chicken_oil rdf:type owl:NamedIndividual ,
+                                            pm:IngredientUsage ;
+                                   pm:IngredientUsageInMeal pm:bacon_wrapped_chicken ;
+                                   pm:UsedIngredient pm:oil ;
+                                   pm:IngredientUsageInGrams 10 .
+
+
+###  http://example.org/pm#usage_bacon_wrapped_chicken_rosemary
+pm:usage_bacon_wrapped_chicken_rosemary rdf:type owl:NamedIndividual ,
+                                                 pm:IngredientUsage ;
+                                        pm:IngredientUsageInMeal pm:bacon_wrapped_chicken ;
+                                        pm:UsedIngredient pm:rosemary ;
+                                        pm:IngredientUsageInGrams 2 .
+
+
+###  http://example.org/pm#usage_bacon_wrapped_chicken_salt
+pm:usage_bacon_wrapped_chicken_salt rdf:type owl:NamedIndividual ,
+                                             pm:IngredientUsage ;
+                                    pm:IngredientUsageInMeal pm:bacon_wrapped_chicken ;
+                                    pm:UsedIngredient pm:salt ;
+                                    pm:IngredientUsageInGrams 5 .
+
+
+###  http://example.org/pm#usage_baked_sea_bass_lemon
+pm:usage_baked_sea_bass_lemon rdf:type owl:NamedIndividual ,
+                                       pm:IngredientUsage ;
+                              pm:IngredientUsageInMeal pm:baked_sea_bass ;
+                              pm:UsedIngredient pm:lemon ;
+                              pm:IngredientUsageInGrams 50 .
+
+
+###  http://example.org/pm#usage_baked_sea_bass_oil
+pm:usage_baked_sea_bass_oil rdf:type owl:NamedIndividual ,
+                                     pm:IngredientUsage ;
+                            pm:IngredientUsageInMeal pm:baked_sea_bass ;
+                            pm:UsedIngredient pm:oil ;
+                            pm:IngredientUsageInGrams 10 .
+
+
+###  http://example.org/pm#usage_baked_sea_bass_rosemary
+pm:usage_baked_sea_bass_rosemary rdf:type owl:NamedIndividual ,
+                                          pm:IngredientUsage ;
+                                 pm:IngredientUsageInMeal pm:baked_sea_bass ;
+                                 pm:UsedIngredient pm:rosemary ;
+                                 pm:IngredientUsageInGrams 2 .
+
+
+###  http://example.org/pm#usage_baked_sea_bass_salt
+pm:usage_baked_sea_bass_salt rdf:type owl:NamedIndividual ,
+                                      pm:IngredientUsage ;
+                             pm:IngredientUsageInMeal pm:baked_sea_bass ;
+                             pm:UsedIngredient pm:salt ;
+                             pm:IngredientUsageInGrams 5 .
+
+
+###  http://example.org/pm#usage_baked_sea_bass_seabass
+pm:usage_baked_sea_bass_seabass rdf:type owl:NamedIndividual ,
+                                         pm:IngredientUsage ;
+                                pm:IngredientUsageInMeal pm:baked_sea_bass ;
+                                pm:UsedIngredient pm:seabass ;
+                                pm:IngredientUsageInGrams 150 .
+
+
+###  http://example.org/pm#usage_beef_steak_with_veggies_beef
+pm:usage_beef_steak_with_veggies_beef rdf:type owl:NamedIndividual ,
+                                               pm:IngredientUsage ;
+                                      pm:IngredientUsageInMeal pm:beef_steak_with_veggies ;
+                                      pm:UsedIngredient pm:beef ;
+                                      pm:IngredientUsageInGrams 150 .
+
+
+###  http://example.org/pm#usage_beef_steak_with_veggies_carrot
+pm:usage_beef_steak_with_veggies_carrot rdf:type owl:NamedIndividual ,
+                                                 pm:IngredientUsage ;
+                                        pm:IngredientUsageInMeal pm:beef_steak_with_veggies ;
+                                        pm:UsedIngredient pm:carrot ;
+                                        pm:IngredientUsageInGrams 80 .
+
+
+###  http://example.org/pm#usage_beef_steak_with_veggies_oil
+pm:usage_beef_steak_with_veggies_oil rdf:type owl:NamedIndividual ,
+                                              pm:IngredientUsage ;
+                                     pm:IngredientUsageInMeal pm:beef_steak_with_veggies ;
+                                     pm:UsedIngredient pm:oil ;
+                                     pm:IngredientUsageInGrams 10 .
+
+
+###  http://example.org/pm#usage_beef_steak_with_veggies_onion
+pm:usage_beef_steak_with_veggies_onion rdf:type owl:NamedIndividual ,
+                                                pm:IngredientUsage ;
+                                       pm:IngredientUsageInMeal pm:beef_steak_with_veggies ;
+                                       pm:UsedIngredient pm:onion ;
+                                       pm:IngredientUsageInGrams 80 .
+
+
+###  http://example.org/pm#usage_beef_steak_with_veggies_potato
+pm:usage_beef_steak_with_veggies_potato rdf:type owl:NamedIndividual ,
+                                                 pm:IngredientUsage ;
+                                        pm:IngredientUsageInMeal pm:beef_steak_with_veggies ;
+                                        pm:UsedIngredient pm:potato ;
+                                        pm:IngredientUsageInGrams 150 .
+
+
+###  http://example.org/pm#usage_beef_steak_with_veggies_salt
+pm:usage_beef_steak_with_veggies_salt rdf:type owl:NamedIndividual ,
+                                               pm:IngredientUsage ;
+                                      pm:IngredientUsageInMeal pm:beef_steak_with_veggies ;
+                                      pm:UsedIngredient pm:salt ;
+                                      pm:IngredientUsageInGrams 5 .
+
+
+###  http://example.org/pm#usage_chicken_with_rice_chicken
+pm:usage_chicken_with_rice_chicken rdf:type owl:NamedIndividual ,
+                                            pm:IngredientUsage ;
+                                   pm:IngredientUsageInMeal pm:chicken_with_rice ;
+                                   pm:UsedIngredient pm:chicken ;
+                                   pm:IngredientUsageInGrams 150 .
+
+
+###  http://example.org/pm#usage_chicken_with_rice_oil
+pm:usage_chicken_with_rice_oil rdf:type owl:NamedIndividual ,
+                                        pm:IngredientUsage ;
+                               pm:IngredientUsageInMeal pm:chicken_with_rice ;
+                               pm:UsedIngredient pm:oil ;
+                               pm:IngredientUsageInGrams 10 .
+
+
+###  http://example.org/pm#usage_chicken_with_rice_peas
+pm:usage_chicken_with_rice_peas rdf:type owl:NamedIndividual ,
+                                         pm:IngredientUsage ;
+                                pm:IngredientUsageInMeal pm:chicken_with_rice ;
+                                pm:UsedIngredient pm:peas ;
+                                pm:IngredientUsageInGrams 80 .
+
+
+###  http://example.org/pm#usage_chicken_with_rice_rice
+pm:usage_chicken_with_rice_rice rdf:type owl:NamedIndividual ,
+                                         pm:IngredientUsage ;
+                                pm:IngredientUsageInMeal pm:chicken_with_rice ;
+                                pm:UsedIngredient pm:rice ;
+                                pm:IngredientUsageInGrams 100 .
+
+
+###  http://example.org/pm#usage_chicken_with_rice_salt
+pm:usage_chicken_with_rice_salt rdf:type owl:NamedIndividual ,
+                                         pm:IngredientUsage ;
+                                pm:IngredientUsageInMeal pm:chicken_with_rice ;
+                                pm:UsedIngredient pm:salt ;
+                                pm:IngredientUsageInGrams 5 .
+
+
+###  http://example.org/pm#usage_chocolate_almond_bark_almonds
+pm:usage_chocolate_almond_bark_almonds rdf:type owl:NamedIndividual ,
+                                                pm:IngredientUsage ;
+                                       pm:IngredientUsageInMeal pm:chocolate_almond_bark ;
+                                       pm:UsedIngredient pm:almonds ;
+                                       pm:IngredientUsageInGrams 30 .
+
+
+###  http://example.org/pm#usage_chocolate_almond_bark_dark_chocolate
+pm:usage_chocolate_almond_bark_dark_chocolate rdf:type owl:NamedIndividual ,
+                                                       pm:IngredientUsage ;
+                                              pm:IngredientUsageInMeal pm:chocolate_almond_bark ;
+                                              pm:UsedIngredient pm:dark_chocolate ;
+                                              pm:IngredientUsageInGrams 30 .
+
+
+###  http://example.org/pm#usage_chocolate_almond_bark_oil
+pm:usage_chocolate_almond_bark_oil rdf:type owl:NamedIndividual ,
+                                            pm:IngredientUsage ;
+                                   pm:IngredientUsageInMeal pm:chocolate_almond_bark ;
+                                   pm:UsedIngredient pm:oil ;
+                                   pm:IngredientUsageInGrams 10 .
+
+
+###  http://example.org/pm#usage_chocolate_almond_bark_sugar
+pm:usage_chocolate_almond_bark_sugar rdf:type owl:NamedIndividual ,
+                                              pm:IngredientUsage ;
+                                     pm:IngredientUsageInMeal pm:chocolate_almond_bark ;
+                                     pm:UsedIngredient pm:sugar ;
+                                     pm:IngredientUsageInGrams 30 .
+
+
+###  http://example.org/pm#usage_coffee_coffee
+pm:usage_coffee_coffee rdf:type owl:NamedIndividual ,
+                                pm:IngredientUsage ;
+                       pm:IngredientUsageInMeal pm:coffee ;
+                       pm:UsedIngredient pm:coffee ;
+                       pm:IngredientUsageInGrams 5 .
+
+
+###  http://example.org/pm#usage_coffee_milk
+pm:usage_coffee_milk rdf:type owl:NamedIndividual ,
+                              pm:IngredientUsage ;
+                     pm:IngredientUsageInMeal pm:coffee ;
+                     pm:UsedIngredient pm:milk ;
+                     pm:IngredientUsageInGrams 200 .
+
+
+###  http://example.org/pm#usage_coffee_sugar
+pm:usage_coffee_sugar rdf:type owl:NamedIndividual ,
+                               pm:IngredientUsage ;
+                      pm:IngredientUsageInMeal pm:coffee ;
+                      pm:UsedIngredient pm:sugar ;
+                      pm:IngredientUsageInGrams 30 .
+
+
+###  http://example.org/pm#usage_duck_with_orange_sauce_duck
+pm:usage_duck_with_orange_sauce_duck rdf:type owl:NamedIndividual ,
+                                              pm:IngredientUsage ;
+                                     pm:IngredientUsageInMeal pm:duck_with_orange_sauce ;
+                                     pm:UsedIngredient pm:duck ;
+                                     pm:IngredientUsageInGrams 200 .
+
+
+###  http://example.org/pm#usage_duck_with_orange_sauce_oil
+pm:usage_duck_with_orange_sauce_oil rdf:type owl:NamedIndividual ,
+                                             pm:IngredientUsage ;
+                                    pm:IngredientUsageInMeal pm:duck_with_orange_sauce ;
+                                    pm:UsedIngredient pm:oil ;
+                                    pm:IngredientUsageInGrams 10 .
+
+
+###  http://example.org/pm#usage_duck_with_orange_sauce_orange
+pm:usage_duck_with_orange_sauce_orange rdf:type owl:NamedIndividual ,
+                                                pm:IngredientUsage ;
+                                       pm:IngredientUsageInMeal pm:duck_with_orange_sauce ;
+                                       pm:UsedIngredient pm:orange ;
+                                       pm:IngredientUsageInGrams 120 .
+
+
+###  http://example.org/pm#usage_duck_with_orange_sauce_sugar
+pm:usage_duck_with_orange_sauce_sugar rdf:type owl:NamedIndividual ,
+                                               pm:IngredientUsage ;
+                                      pm:IngredientUsageInMeal pm:duck_with_orange_sauce ;
+                                      pm:UsedIngredient pm:sugar ;
+                                      pm:IngredientUsageInGrams 30 .
+
+
+###  http://example.org/pm#usage_eggplant_pizza_eggplant
+pm:usage_eggplant_pizza_eggplant rdf:type owl:NamedIndividual ,
+                                          pm:IngredientUsage ;
+                                 pm:IngredientUsageInMeal pm:eggplant_pizza ;
+                                 pm:UsedIngredient pm:eggplant ;
+                                 pm:IngredientUsageInGrams 150 .
+
+
+###  http://example.org/pm#usage_eggplant_pizza_flour
+pm:usage_eggplant_pizza_flour rdf:type owl:NamedIndividual ,
+                                       pm:IngredientUsage ;
+                              pm:IngredientUsageInMeal pm:eggplant_pizza ;
+                              pm:UsedIngredient pm:flour ;
+                              pm:IngredientUsageInGrams 200 .
+
+
+###  http://example.org/pm#usage_eggplant_pizza_mozzarella
+pm:usage_eggplant_pizza_mozzarella rdf:type owl:NamedIndividual ,
+                                            pm:IngredientUsage ;
+                                   pm:IngredientUsageInMeal pm:eggplant_pizza ;
+                                   pm:UsedIngredient pm:mozzarella ;
+                                   pm:IngredientUsageInGrams 100 .
+
+
+###  http://example.org/pm#usage_eggplant_pizza_oil
+pm:usage_eggplant_pizza_oil rdf:type owl:NamedIndividual ,
+                                     pm:IngredientUsage ;
+                            pm:IngredientUsageInMeal pm:eggplant_pizza ;
+                            pm:UsedIngredient pm:oil ;
+                            pm:IngredientUsageInGrams 10 .
+
+
+###  http://example.org/pm#usage_eggplant_pizza_tomato_sauce
+pm:usage_eggplant_pizza_tomato_sauce rdf:type owl:NamedIndividual ,
+                                              pm:IngredientUsage ;
+                                     pm:IngredientUsageInMeal pm:eggplant_pizza ;
+                                     pm:UsedIngredient pm:tomato_sauce ;
+                                     pm:IngredientUsageInGrams 80 .
+
+
+###  http://example.org/pm#usage_eggplant_stuffed_eggplant
+pm:usage_eggplant_stuffed_eggplant rdf:type owl:NamedIndividual ,
+                                            pm:IngredientUsage ;
+                                   pm:IngredientUsageInMeal pm:eggplant_stuffed ;
+                                   pm:UsedIngredient pm:eggplant ;
+                                   pm:IngredientUsageInGrams 150 .
+
+
+###  http://example.org/pm#usage_eggplant_stuffed_mozzarella
+pm:usage_eggplant_stuffed_mozzarella rdf:type owl:NamedIndividual ,
+                                              pm:IngredientUsage ;
+                                     pm:IngredientUsageInMeal pm:eggplant_stuffed ;
+                                     pm:UsedIngredient pm:mozzarella ;
+                                     pm:IngredientUsageInGrams 100 .
+
+
+###  http://example.org/pm#usage_eggplant_stuffed_oil
+pm:usage_eggplant_stuffed_oil rdf:type owl:NamedIndividual ,
+                                       pm:IngredientUsage ;
+                              pm:IngredientUsageInMeal pm:eggplant_stuffed ;
+                              pm:UsedIngredient pm:oil ;
+                              pm:IngredientUsageInGrams 10 .
+
+
+###  http://example.org/pm#usage_eggplant_stuffed_ricotta
+pm:usage_eggplant_stuffed_ricotta rdf:type owl:NamedIndividual ,
+                                           pm:IngredientUsage ;
+                                  pm:IngredientUsageInMeal pm:eggplant_stuffed ;
+                                  pm:UsedIngredient pm:ricotta ;
+                                  pm:IngredientUsageInGrams 80 .
+
+
+###  http://example.org/pm#usage_eggplant_stuffed_tomato_sauce
+pm:usage_eggplant_stuffed_tomato_sauce rdf:type owl:NamedIndividual ,
+                                                pm:IngredientUsage ;
+                                       pm:IngredientUsageInMeal pm:eggplant_stuffed ;
+                                       pm:UsedIngredient pm:tomato_sauce ;
+                                       pm:IngredientUsageInGrams 80 .
+
+
+###  http://example.org/pm#usage_four_cheese_pizza_flour
+pm:usage_four_cheese_pizza_flour rdf:type owl:NamedIndividual ,
+                                          pm:IngredientUsage ;
+                                 pm:IngredientUsageInMeal pm:four_cheese_pizza ;
+                                 pm:UsedIngredient pm:flour ;
+                                 pm:IngredientUsageInGrams 200 .
+
+
+###  http://example.org/pm#usage_four_cheese_pizza_mascarpone
+pm:usage_four_cheese_pizza_mascarpone rdf:type owl:NamedIndividual ,
+                                               pm:IngredientUsage ;
+                                      pm:IngredientUsageInMeal pm:four_cheese_pizza ;
+                                      pm:UsedIngredient pm:mascarpone ;
+                                      pm:IngredientUsageInGrams 60 .
+
+
+###  http://example.org/pm#usage_four_cheese_pizza_mozzarella
+pm:usage_four_cheese_pizza_mozzarella rdf:type owl:NamedIndividual ,
+                                               pm:IngredientUsage ;
+                                      pm:IngredientUsageInMeal pm:four_cheese_pizza ;
+                                      pm:UsedIngredient pm:mozzarella ;
+                                      pm:IngredientUsageInGrams 100 .
+
+
+###  http://example.org/pm#usage_four_cheese_pizza_parmesan
+pm:usage_four_cheese_pizza_parmesan rdf:type owl:NamedIndividual ,
+                                             pm:IngredientUsage ;
+                                    pm:IngredientUsageInMeal pm:four_cheese_pizza ;
+                                    pm:UsedIngredient pm:parmesan ;
+                                    pm:IngredientUsageInGrams 30 .
+
+
+###  http://example.org/pm#usage_four_cheese_pizza_pecorino
+pm:usage_four_cheese_pizza_pecorino rdf:type owl:NamedIndividual ,
+                                             pm:IngredientUsage ;
+                                    pm:IngredientUsageInMeal pm:four_cheese_pizza ;
+                                    pm:UsedIngredient pm:pecorino ;
+                                    pm:IngredientUsageInGrams 30 .
+
+
+###  http://example.org/pm#usage_gnocchi_di_patate_butter
+pm:usage_gnocchi_di_patate_butter rdf:type owl:NamedIndividual ,
+                                           pm:IngredientUsage ;
+                                  pm:IngredientUsageInMeal pm:gnocchi_di_patate ;
+                                  pm:UsedIngredient pm:butter ;
+                                  pm:IngredientUsageInGrams 20 .
+
+
+###  http://example.org/pm#usage_gnocchi_di_patate_egg
+pm:usage_gnocchi_di_patate_egg rdf:type owl:NamedIndividual ,
+                                        pm:IngredientUsage ;
+                               pm:IngredientUsageInMeal pm:gnocchi_di_patate ;
+                               pm:UsedIngredient pm:egg ;
+                               pm:IngredientUsageInGrams 50 .
+
+
+###  http://example.org/pm#usage_gnocchi_di_patate_flour
+pm:usage_gnocchi_di_patate_flour rdf:type owl:NamedIndividual ,
+                                          pm:IngredientUsage ;
+                                 pm:IngredientUsageInMeal pm:gnocchi_di_patate ;
+                                 pm:UsedIngredient pm:flour ;
+                                 pm:IngredientUsageInGrams 200 .
+
+
+###  http://example.org/pm#usage_gnocchi_di_patate_potato
+pm:usage_gnocchi_di_patate_potato rdf:type owl:NamedIndividual ,
+                                           pm:IngredientUsage ;
+                                  pm:IngredientUsageInMeal pm:gnocchi_di_patate ;
+                                  pm:UsedIngredient pm:potato ;
+                                  pm:IngredientUsageInGrams 150 .
+
+
+###  http://example.org/pm#usage_grilled_clams_clams
+pm:usage_grilled_clams_clams rdf:type owl:NamedIndividual ,
+                                      pm:IngredientUsage ;
+                             pm:IngredientUsageInMeal pm:grilled_clams ;
+                             pm:UsedIngredient pm:clams ;
+                             pm:IngredientUsageInGrams 100 .
+
+
+###  http://example.org/pm#usage_grilled_clams_garlic
+pm:usage_grilled_clams_garlic rdf:type owl:NamedIndividual ,
+                                       pm:IngredientUsage ;
+                              pm:IngredientUsageInMeal pm:grilled_clams ;
+                              pm:UsedIngredient pm:garlic ;
+                              pm:IngredientUsageInGrams 10 .
+
+
+###  http://example.org/pm#usage_grilled_clams_lemon
+pm:usage_grilled_clams_lemon rdf:type owl:NamedIndividual ,
+                                      pm:IngredientUsage ;
+                             pm:IngredientUsageInMeal pm:grilled_clams ;
+                             pm:UsedIngredient pm:lemon ;
+                             pm:IngredientUsageInGrams 50 .
+
+
+###  http://example.org/pm#usage_grilled_clams_oil
+pm:usage_grilled_clams_oil rdf:type owl:NamedIndividual ,
+                                    pm:IngredientUsage ;
+                           pm:IngredientUsageInMeal pm:grilled_clams ;
+                           pm:UsedIngredient pm:oil ;
+                           pm:IngredientUsageInGrams 10 .
+
+
+###  http://example.org/pm#usage_grilled_clams_parsley
+pm:usage_grilled_clams_parsley rdf:type owl:NamedIndividual ,
+                                        pm:IngredientUsage ;
+                               pm:IngredientUsageInMeal pm:grilled_clams ;
+                               pm:UsedIngredient pm:parsley ;
+                               pm:IngredientUsageInGrams 5 .
+
+
+###  http://example.org/pm#usage_grilled_salmon_lemon
+pm:usage_grilled_salmon_lemon rdf:type owl:NamedIndividual ,
+                                       pm:IngredientUsage ;
+                              pm:IngredientUsageInMeal pm:grilled_salmon ;
+                              pm:UsedIngredient pm:lemon ;
+                              pm:IngredientUsageInGrams 50 .
+
+
+###  http://example.org/pm#usage_grilled_salmon_oil
+pm:usage_grilled_salmon_oil rdf:type owl:NamedIndividual ,
+                                     pm:IngredientUsage ;
+                            pm:IngredientUsageInMeal pm:grilled_salmon ;
+                            pm:UsedIngredient pm:oil ;
+                            pm:IngredientUsageInGrams 10 .
+
+
+###  http://example.org/pm#usage_grilled_salmon_rosemary
+pm:usage_grilled_salmon_rosemary rdf:type owl:NamedIndividual ,
+                                          pm:IngredientUsage ;
+                                 pm:IngredientUsageInMeal pm:grilled_salmon ;
+                                 pm:UsedIngredient pm:rosemary ;
+                                 pm:IngredientUsageInGrams 2 .
+
+
+###  http://example.org/pm#usage_grilled_salmon_salmon
+pm:usage_grilled_salmon_salmon rdf:type owl:NamedIndividual ,
+                                        pm:IngredientUsage ;
+                               pm:IngredientUsageInMeal pm:grilled_salmon ;
+                               pm:UsedIngredient pm:salmon ;
+                               pm:IngredientUsageInGrams 150 .
+
+
+###  http://example.org/pm#usage_grilled_salmon_salt
+pm:usage_grilled_salmon_salt rdf:type owl:NamedIndividual ,
+                                      pm:IngredientUsage ;
+                             pm:IngredientUsageInMeal pm:grilled_salmon ;
+                             pm:UsedIngredient pm:salt ;
+                             pm:IngredientUsageInGrams 5 .
+
+
+###  http://example.org/pm#usage_ham_mushroom_pizza_champignon
+pm:usage_ham_mushroom_pizza_champignon rdf:type owl:NamedIndividual ,
+                                                pm:IngredientUsage ;
+                                       pm:IngredientUsageInMeal pm:ham_mushroom_pizza ;
+                                       pm:UsedIngredient pm:champignon ;
+                                       pm:IngredientUsageInGrams 100 .
+
+
+###  http://example.org/pm#usage_ham_mushroom_pizza_flour
+pm:usage_ham_mushroom_pizza_flour rdf:type owl:NamedIndividual ,
+                                           pm:IngredientUsage ;
+                                  pm:IngredientUsageInMeal pm:ham_mushroom_pizza ;
+                                  pm:UsedIngredient pm:flour ;
+                                  pm:IngredientUsageInGrams 200 .
+
+
+###  http://example.org/pm#usage_ham_mushroom_pizza_ham
+pm:usage_ham_mushroom_pizza_ham rdf:type owl:NamedIndividual ,
+                                         pm:IngredientUsage ;
+                                pm:IngredientUsageInMeal pm:ham_mushroom_pizza ;
+                                pm:UsedIngredient pm:ham ;
+                                pm:IngredientUsageInGrams 50 .
+
+
+###  http://example.org/pm#usage_ham_mushroom_pizza_mozzarella
+pm:usage_ham_mushroom_pizza_mozzarella rdf:type owl:NamedIndividual ,
+                                                pm:IngredientUsage ;
+                                       pm:IngredientUsageInMeal pm:ham_mushroom_pizza ;
+                                       pm:UsedIngredient pm:mozzarella ;
+                                       pm:IngredientUsageInGrams 100 .
+
+
+###  http://example.org/pm#usage_ham_mushroom_pizza_oil
+pm:usage_ham_mushroom_pizza_oil rdf:type owl:NamedIndividual ,
+                                         pm:IngredientUsage ;
+                                pm:IngredientUsageInMeal pm:ham_mushroom_pizza ;
+                                pm:UsedIngredient pm:oil ;
+                                pm:IngredientUsageInGrams 10 .
+
+
+###  http://example.org/pm#usage_ham_mushroom_pizza_tomato_sauce
+pm:usage_ham_mushroom_pizza_tomato_sauce rdf:type owl:NamedIndividual ,
+                                                  pm:IngredientUsage ;
+                                         pm:IngredientUsageInMeal pm:ham_mushroom_pizza ;
+                                         pm:UsedIngredient pm:tomato_sauce ;
+                                         pm:IngredientUsageInGrams 80 .
+
+
+###  http://example.org/pm#usage_iced_coffee_coffee
+pm:usage_iced_coffee_coffee rdf:type owl:NamedIndividual ,
+                                     pm:IngredientUsage ;
+                            pm:IngredientUsageInMeal pm:iced_coffee ;
+                            pm:UsedIngredient pm:coffee ;
+                            pm:IngredientUsageInGrams 5 .
+
+
+###  http://example.org/pm#usage_iced_coffee_ice
+pm:usage_iced_coffee_ice rdf:type owl:NamedIndividual ,
+                                  pm:IngredientUsage ;
+                         pm:IngredientUsageInMeal pm:iced_coffee ;
+                         pm:UsedIngredient pm:ice ;
+                         pm:IngredientUsageInGrams 100 .
+
+
+###  http://example.org/pm#usage_iced_coffee_milk
+pm:usage_iced_coffee_milk rdf:type owl:NamedIndividual ,
+                                   pm:IngredientUsage ;
+                          pm:IngredientUsageInMeal pm:iced_coffee ;
+                          pm:UsedIngredient pm:milk ;
+                          pm:IngredientUsageInGrams 200 .
+
+
+###  http://example.org/pm#usage_iced_coffee_sugar
+pm:usage_iced_coffee_sugar rdf:type owl:NamedIndividual ,
+                                    pm:IngredientUsage ;
+                           pm:IngredientUsageInMeal pm:iced_coffee ;
+                           pm:UsedIngredient pm:sugar ;
+                           pm:IngredientUsageInGrams 30 .
+
+
+###  http://example.org/pm#usage_margherita_pizza_basil
+pm:usage_margherita_pizza_basil rdf:type owl:NamedIndividual ,
+                                         pm:IngredientUsage ;
+                                pm:IngredientUsageInMeal pm:margherita_pizza ;
+                                pm:UsedIngredient pm:basil ;
+                                pm:IngredientUsageInGrams 5 .
+
+
+###  http://example.org/pm#usage_margherita_pizza_flour
+pm:usage_margherita_pizza_flour rdf:type owl:NamedIndividual ,
+                                         pm:IngredientUsage ;
+                                pm:IngredientUsageInMeal pm:margherita_pizza ;
+                                pm:UsedIngredient pm:flour ;
+                                pm:IngredientUsageInGrams 200 .
+
+
+###  http://example.org/pm#usage_margherita_pizza_mozzarella
+pm:usage_margherita_pizza_mozzarella rdf:type owl:NamedIndividual ,
+                                              pm:IngredientUsage ;
+                                     pm:IngredientUsageInMeal pm:margherita_pizza ;
+                                     pm:UsedIngredient pm:mozzarella ;
+                                     pm:IngredientUsageInGrams 100 .
+
+
+###  http://example.org/pm#usage_margherita_pizza_oil
+pm:usage_margherita_pizza_oil rdf:type owl:NamedIndividual ,
+                                       pm:IngredientUsage ;
+                              pm:IngredientUsageInMeal pm:margherita_pizza ;
+                              pm:UsedIngredient pm:oil ;
+                              pm:IngredientUsageInGrams 10 .
+
+
+###  http://example.org/pm#usage_margherita_pizza_tomato_sauce
+pm:usage_margherita_pizza_tomato_sauce rdf:type owl:NamedIndividual ,
+                                                pm:IngredientUsage ;
+                                       pm:IngredientUsageInMeal pm:margherita_pizza ;
+                                       pm:UsedIngredient pm:tomato_sauce ;
+                                       pm:IngredientUsageInGrams 80 .
+
+
+###  http://example.org/pm#usage_milk_iced_cofee
+pm:usage_milk_iced_cofee rdf:type owl:NamedIndividual ,
+                                  pm:IngredientUsage ;
+                         pm:IngredientUsageInMeal pm:iced_coffee ;
+                         pm:UsedIngredient pm:milk ;
+                         pm:IngredientUsageInGrams 210 .
+
+
+###  http://example.org/pm#usage_pasta_al_pesto_almonds
+pm:usage_pasta_al_pesto_almonds rdf:type owl:NamedIndividual ,
+                                         pm:IngredientUsage ;
+                                pm:IngredientUsageInMeal pm:pasta_al_pesto ;
+                                pm:UsedIngredient pm:almonds ;
+                                pm:IngredientUsageInGrams 30 .
+
+
+###  http://example.org/pm#usage_pasta_al_pesto_garlic
+pm:usage_pasta_al_pesto_garlic rdf:type owl:NamedIndividual ,
+                                        pm:IngredientUsage ;
+                               pm:IngredientUsageInMeal pm:pasta_al_pesto ;
+                               pm:UsedIngredient pm:garlic ;
+                               pm:IngredientUsageInGrams 10 .
+
+
+###  http://example.org/pm#usage_pasta_al_pesto_oil
+pm:usage_pasta_al_pesto_oil rdf:type owl:NamedIndividual ,
+                                     pm:IngredientUsage ;
+                            pm:IngredientUsageInMeal pm:pasta_al_pesto ;
+                            pm:UsedIngredient pm:oil ;
+                            pm:IngredientUsageInGrams 10 .
+
+
+###  http://example.org/pm#usage_pasta_al_pesto_parmesan
+pm:usage_pasta_al_pesto_parmesan rdf:type owl:NamedIndividual ,
+                                          pm:IngredientUsage ;
+                                 pm:IngredientUsageInMeal pm:pasta_al_pesto ;
+                                 pm:UsedIngredient pm:parmesan ;
+                                 pm:IngredientUsageInGrams 30 .
+
+
+###  http://example.org/pm#usage_pasta_al_pesto_pasta
+pm:usage_pasta_al_pesto_pasta rdf:type owl:NamedIndividual ,
+                                       pm:IngredientUsage ;
+                              pm:IngredientUsageInMeal pm:pasta_al_pesto ;
+                              pm:UsedIngredient pm:pasta ;
+                              pm:IngredientUsageInGrams 100 .
+
+
+###  http://example.org/pm#usage_pasta_al_pomodoro_basil
+pm:usage_pasta_al_pomodoro_basil rdf:type owl:NamedIndividual ,
+                                          pm:IngredientUsage ;
+                                 pm:IngredientUsageInMeal pm:pasta_al_pomodoro ;
+                                 pm:UsedIngredient pm:basil ;
+                                 pm:IngredientUsageInGrams 5 .
+
+
+###  http://example.org/pm#usage_pasta_al_pomodoro_garlic
+pm:usage_pasta_al_pomodoro_garlic rdf:type owl:NamedIndividual ,
+                                           pm:IngredientUsage ;
+                                  pm:IngredientUsageInMeal pm:pasta_al_pomodoro ;
+                                  pm:UsedIngredient pm:garlic ;
+                                  pm:IngredientUsageInGrams 10 .
+
+
+###  http://example.org/pm#usage_pasta_al_pomodoro_oil
+pm:usage_pasta_al_pomodoro_oil rdf:type owl:NamedIndividual ,
+                                        pm:IngredientUsage ;
+                               pm:IngredientUsageInMeal pm:pasta_al_pomodoro ;
+                               pm:UsedIngredient pm:oil ;
+                               pm:IngredientUsageInGrams 10 .
+
+
+###  http://example.org/pm#usage_pasta_al_pomodoro_pasta
+pm:usage_pasta_al_pomodoro_pasta rdf:type owl:NamedIndividual ,
+                                          pm:IngredientUsage ;
+                                 pm:IngredientUsageInMeal pm:pasta_al_pomodoro ;
+                                 pm:UsedIngredient pm:pasta ;
+                                 pm:IngredientUsageInGrams 100 .
+
+
+###  http://example.org/pm#usage_pasta_al_pomodoro_tomato_sauce
+pm:usage_pasta_al_pomodoro_tomato_sauce rdf:type owl:NamedIndividual ,
+                                                 pm:IngredientUsage ;
+                                        pm:IngredientUsageInMeal pm:pasta_al_pomodoro ;
+                                        pm:UsedIngredient pm:tomato_sauce ;
+                                        pm:IngredientUsageInGrams 80 .
+
+
+###  http://example.org/pm#usage_pasta_al_salmone_cream
+pm:usage_pasta_al_salmone_cream rdf:type owl:NamedIndividual ,
+                                         pm:IngredientUsage ;
+                                pm:IngredientUsageInMeal pm:pasta_al_salmone ;
+                                pm:UsedIngredient pm:cream ;
+                                pm:IngredientUsageInGrams 50 .
+
+
+###  http://example.org/pm#usage_pasta_al_salmone_lemon
+pm:usage_pasta_al_salmone_lemon rdf:type owl:NamedIndividual ,
+                                         pm:IngredientUsage ;
+                                pm:IngredientUsageInMeal pm:pasta_al_salmone ;
+                                pm:UsedIngredient pm:lemon ;
+                                pm:IngredientUsageInGrams 50 .
+
+
+###  http://example.org/pm#usage_pasta_al_salmone_pasta
+pm:usage_pasta_al_salmone_pasta rdf:type owl:NamedIndividual ,
+                                         pm:IngredientUsage ;
+                                pm:IngredientUsageInMeal pm:pasta_al_salmone ;
+                                pm:UsedIngredient pm:pasta ;
+                                pm:IngredientUsageInGrams 100 .
+
+
+###  http://example.org/pm#usage_pasta_al_salmone_peas
+pm:usage_pasta_al_salmone_peas rdf:type owl:NamedIndividual ,
+                                        pm:IngredientUsage ;
+                               pm:IngredientUsageInMeal pm:pasta_al_salmone ;
+                               pm:UsedIngredient pm:peas ;
+                               pm:IngredientUsageInGrams 80 .
+
+
+###  http://example.org/pm#usage_pasta_al_salmone_salmon
+pm:usage_pasta_al_salmone_salmon rdf:type owl:NamedIndividual ,
+                                          pm:IngredientUsage ;
+                                 pm:IngredientUsageInMeal pm:pasta_al_salmone ;
+                                 pm:UsedIngredient pm:salmon ;
+                                 pm:IngredientUsageInGrams 150 .
+
+
+###  http://example.org/pm#usage_pasta_al_tartufo_oil
+pm:usage_pasta_al_tartufo_oil rdf:type owl:NamedIndividual ,
+                                       pm:IngredientUsage ;
+                              pm:IngredientUsageInMeal pm:pasta_al_tartufo ;
+                              pm:UsedIngredient pm:oil ;
+                              pm:IngredientUsageInGrams 10 .
+
+
+###  http://example.org/pm#usage_pasta_al_tartufo_pasta
+pm:usage_pasta_al_tartufo_pasta rdf:type owl:NamedIndividual ,
+                                         pm:IngredientUsage ;
+                                pm:IngredientUsageInMeal pm:pasta_al_tartufo ;
+                                pm:UsedIngredient pm:pasta ;
+                                pm:IngredientUsageInGrams 100 .
+
+
+###  http://example.org/pm#usage_pasta_al_tartufo_truffle
+pm:usage_pasta_al_tartufo_truffle rdf:type owl:NamedIndividual ,
+                                           pm:IngredientUsage ;
+                                  pm:IngredientUsageInMeal pm:pasta_al_tartufo ;
+                                  pm:UsedIngredient pm:truffle ;
+                                  pm:IngredientUsageInGrams 10 .
+
+
+###  http://example.org/pm#usage_pasta_alla_bolognese_beef
+pm:usage_pasta_alla_bolognese_beef rdf:type owl:NamedIndividual ,
+                                            pm:IngredientUsage ;
+                                   pm:IngredientUsageInMeal pm:pasta_alla_bolognese ;
+                                   pm:UsedIngredient pm:beef ;
+                                   pm:IngredientUsageInGrams 150 .
+
+
+###  http://example.org/pm#usage_pasta_alla_bolognese_carrot
+pm:usage_pasta_alla_bolognese_carrot rdf:type owl:NamedIndividual ,
+                                              pm:IngredientUsage ;
+                                     pm:IngredientUsageInMeal pm:pasta_alla_bolognese ;
+                                     pm:UsedIngredient pm:carrot ;
+                                     pm:IngredientUsageInGrams 80 .
+
+
+###  http://example.org/pm#usage_pasta_alla_bolognese_onion
+pm:usage_pasta_alla_bolognese_onion rdf:type owl:NamedIndividual ,
+                                             pm:IngredientUsage ;
+                                    pm:IngredientUsageInMeal pm:pasta_alla_bolognese ;
+                                    pm:UsedIngredient pm:onion ;
+                                    pm:IngredientUsageInGrams 80 .
+
+
+###  http://example.org/pm#usage_pasta_alla_bolognese_pasta
+pm:usage_pasta_alla_bolognese_pasta rdf:type owl:NamedIndividual ,
+                                             pm:IngredientUsage ;
+                                    pm:IngredientUsageInMeal pm:pasta_alla_bolognese ;
+                                    pm:UsedIngredient pm:pasta ;
+                                    pm:IngredientUsageInGrams 100 .
+
+
+###  http://example.org/pm#usage_pasta_alla_bolognese_tomato_sauce
+pm:usage_pasta_alla_bolognese_tomato_sauce rdf:type owl:NamedIndividual ,
+                                                    pm:IngredientUsage ;
+                                           pm:IngredientUsageInMeal pm:pasta_alla_bolognese ;
+                                           pm:UsedIngredient pm:tomato_sauce ;
+                                           pm:IngredientUsageInGrams 80 .
+
+
+###  http://example.org/pm#usage_peach_almond_pizza_almonds
+pm:usage_peach_almond_pizza_almonds rdf:type owl:NamedIndividual ,
+                                             pm:IngredientUsage ;
+                                    pm:IngredientUsageInMeal pm:peach_almond_pizza ;
+                                    pm:UsedIngredient pm:almonds ;
+                                    pm:IngredientUsageInGrams 30 .
+
+
+###  http://example.org/pm#usage_peach_almond_pizza_flour
+pm:usage_peach_almond_pizza_flour rdf:type owl:NamedIndividual ,
+                                           pm:IngredientUsage ;
+                                  pm:IngredientUsageInMeal pm:peach_almond_pizza ;
+                                  pm:UsedIngredient pm:flour ;
+                                  pm:IngredientUsageInGrams 200 .
+
+
+###  http://example.org/pm#usage_peach_almond_pizza_mozzarella
+pm:usage_peach_almond_pizza_mozzarella rdf:type owl:NamedIndividual ,
+                                                pm:IngredientUsage ;
+                                       pm:IngredientUsageInMeal pm:peach_almond_pizza ;
+                                       pm:UsedIngredient pm:mozzarella ;
+                                       pm:IngredientUsageInGrams 100 .
+
+
+###  http://example.org/pm#usage_peach_almond_pizza_oil
+pm:usage_peach_almond_pizza_oil rdf:type owl:NamedIndividual ,
+                                         pm:IngredientUsage ;
+                                pm:IngredientUsageInMeal pm:peach_almond_pizza ;
+                                pm:UsedIngredient pm:oil ;
+                                pm:IngredientUsageInGrams 10 .
+
+
+###  http://example.org/pm#usage_peach_almond_pizza_peach
+pm:usage_peach_almond_pizza_peach rdf:type owl:NamedIndividual ,
+                                           pm:IngredientUsage ;
+                                  pm:IngredientUsageInMeal pm:peach_almond_pizza ;
+                                  pm:UsedIngredient pm:peach ;
+                                  pm:IngredientUsageInGrams 120 .
+
+
+###  http://example.org/pm#usage_peach_almond_pizza_sugar
+pm:usage_peach_almond_pizza_sugar rdf:type owl:NamedIndividual ,
+                                           pm:IngredientUsage ;
+                                  pm:IngredientUsageInMeal pm:peach_almond_pizza ;
+                                  pm:UsedIngredient pm:sugar ;
+                                  pm:IngredientUsageInGrams 30 .
+
+
+###  http://example.org/pm#usage_peach_compote_lemon
+pm:usage_peach_compote_lemon rdf:type owl:NamedIndividual ,
+                                      pm:IngredientUsage ;
+                             pm:IngredientUsageInMeal pm:peach_compote ;
+                             pm:UsedIngredient pm:lemon ;
+                             pm:IngredientUsageInGrams 50 .
+
+
+###  http://example.org/pm#usage_peach_compote_peach
+pm:usage_peach_compote_peach rdf:type owl:NamedIndividual ,
+                                      pm:IngredientUsage ;
+                             pm:IngredientUsageInMeal pm:peach_compote ;
+                             pm:UsedIngredient pm:peach ;
+                             pm:IngredientUsageInGrams 120 .
+
+
+###  http://example.org/pm#usage_peach_compote_sugar
+pm:usage_peach_compote_sugar rdf:type owl:NamedIndividual ,
+                                      pm:IngredientUsage ;
+                             pm:IngredientUsageInMeal pm:peach_compote ;
+                             pm:UsedIngredient pm:sugar ;
+                             pm:IngredientUsageInGrams 30 .
+
+
+###  http://example.org/pm#usage_peach_compote_water
+pm:usage_peach_compote_water rdf:type owl:NamedIndividual ,
+                                      pm:IngredientUsage ;
+                             pm:IngredientUsageInMeal pm:peach_compote ;
+                             pm:UsedIngredient pm:water ;
+                             pm:IngredientUsageInGrams 200 .
+
+
+###  http://example.org/pm#usage_peach_smoothie_ice
+pm:usage_peach_smoothie_ice rdf:type owl:NamedIndividual ,
+                                     pm:IngredientUsage ;
+                            pm:IngredientUsageInMeal pm:peach_smoothie ;
+                            pm:UsedIngredient pm:ice ;
+                            pm:IngredientUsageInGrams 100 .
+
+
+###  http://example.org/pm#usage_peach_smoothie_peach
+pm:usage_peach_smoothie_peach rdf:type owl:NamedIndividual ,
+                                       pm:IngredientUsage ;
+                              pm:IngredientUsageInMeal pm:peach_smoothie ;
+                              pm:UsedIngredient pm:peach ;
+                              pm:IngredientUsageInGrams 120 .
+
+
+###  http://example.org/pm#usage_peach_smoothie_sugar
+pm:usage_peach_smoothie_sugar rdf:type owl:NamedIndividual ,
+                                       pm:IngredientUsage ;
+                              pm:IngredientUsageInMeal pm:peach_smoothie ;
+                              pm:UsedIngredient pm:sugar ;
+                              pm:IngredientUsageInGrams 30 .
+
+
+###  http://example.org/pm#usage_peach_smoothie_water
+pm:usage_peach_smoothie_water rdf:type owl:NamedIndividual ,
+                                       pm:IngredientUsage ;
+                              pm:IngredientUsageInMeal pm:peach_smoothie ;
+                              pm:UsedIngredient pm:water ;
+                              pm:IngredientUsageInGrams 200 .
+
+
+###  http://example.org/pm#usage_penne_all_arrabbiata_chili
+pm:usage_penne_all_arrabbiata_chili rdf:type owl:NamedIndividual ,
+                                             pm:IngredientUsage ;
+                                    pm:IngredientUsageInMeal pm:penne_all_arrabbiata ;
+                                    pm:UsedIngredient pm:chili ;
+                                    pm:IngredientUsageInGrams 5 .
+
+
+###  http://example.org/pm#usage_penne_all_arrabbiata_garlic
+pm:usage_penne_all_arrabbiata_garlic rdf:type owl:NamedIndividual ,
+                                              pm:IngredientUsage ;
+                                     pm:IngredientUsageInMeal pm:penne_all_arrabbiata ;
+                                     pm:UsedIngredient pm:garlic ;
+                                     pm:IngredientUsageInGrams 10 .
+
+
+###  http://example.org/pm#usage_penne_all_arrabbiata_oil
+pm:usage_penne_all_arrabbiata_oil rdf:type owl:NamedIndividual ,
+                                           pm:IngredientUsage ;
+                                  pm:IngredientUsageInMeal pm:penne_all_arrabbiata ;
+                                  pm:UsedIngredient pm:oil ;
+                                  pm:IngredientUsageInGrams 10 .
+
+
+###  http://example.org/pm#usage_penne_all_arrabbiata_pasta
+pm:usage_penne_all_arrabbiata_pasta rdf:type owl:NamedIndividual ,
+                                             pm:IngredientUsage ;
+                                    pm:IngredientUsageInMeal pm:penne_all_arrabbiata ;
+                                    pm:UsedIngredient pm:pasta ;
+                                    pm:IngredientUsageInGrams 100 .
+
+
+###  http://example.org/pm#usage_penne_all_arrabbiata_tomato_sauce
+pm:usage_penne_all_arrabbiata_tomato_sauce rdf:type owl:NamedIndividual ,
+                                                    pm:IngredientUsage ;
+                                           pm:IngredientUsageInMeal pm:penne_all_arrabbiata ;
+                                           pm:UsedIngredient pm:tomato_sauce ;
+                                           pm:IngredientUsageInGrams 80 .
+
+
+###  http://example.org/pm#usage_pepperoni_pizza_flour
+pm:usage_pepperoni_pizza_flour rdf:type owl:NamedIndividual ,
+                                        pm:IngredientUsage ;
+                               pm:IngredientUsageInMeal pm:pepperoni_pizza ;
+                               pm:UsedIngredient pm:flour ;
+                               pm:IngredientUsageInGrams 200 .
+
+
+###  http://example.org/pm#usage_pepperoni_pizza_mozzarella
+pm:usage_pepperoni_pizza_mozzarella rdf:type owl:NamedIndividual ,
+                                             pm:IngredientUsage ;
+                                    pm:IngredientUsageInMeal pm:pepperoni_pizza ;
+                                    pm:UsedIngredient pm:mozzarella ;
+                                    pm:IngredientUsageInGrams 100 .
+
+
+###  http://example.org/pm#usage_pepperoni_pizza_oil
+pm:usage_pepperoni_pizza_oil rdf:type owl:NamedIndividual ,
+                                      pm:IngredientUsage ;
+                             pm:IngredientUsageInMeal pm:pepperoni_pizza ;
+                             pm:UsedIngredient pm:oil ;
+                             pm:IngredientUsageInGrams 10 .
+
+
+###  http://example.org/pm#usage_pepperoni_pizza_sausage
+pm:usage_pepperoni_pizza_sausage rdf:type owl:NamedIndividual ,
+                                          pm:IngredientUsage ;
+                                 pm:IngredientUsageInMeal pm:pepperoni_pizza ;
+                                 pm:UsedIngredient pm:sausage ;
+                                 pm:IngredientUsageInGrams 80 .
+
+
+###  http://example.org/pm#usage_pepperoni_pizza_tomato_sauce
+pm:usage_pepperoni_pizza_tomato_sauce rdf:type owl:NamedIndividual ,
+                                               pm:IngredientUsage ;
+                                      pm:IngredientUsageInMeal pm:pepperoni_pizza ;
+                                      pm:UsedIngredient pm:tomato_sauce ;
+                                      pm:IngredientUsageInGrams 80 .
+
+
+###  http://example.org/pm#usage_ravioli_di_ricotta_oil
+pm:usage_ravioli_di_ricotta_oil rdf:type owl:NamedIndividual ,
+                                         pm:IngredientUsage ;
+                                pm:IngredientUsageInMeal pm:ravioli_di_ricotta ;
+                                pm:UsedIngredient pm:oil ;
+                                pm:IngredientUsageInGrams 10 .
+
+
+###  http://example.org/pm#usage_ravioli_di_ricotta_parmesan
+pm:usage_ravioli_di_ricotta_parmesan rdf:type owl:NamedIndividual ,
+                                              pm:IngredientUsage ;
+                                     pm:IngredientUsageInMeal pm:ravioli_di_ricotta ;
+                                     pm:UsedIngredient pm:parmesan ;
+                                     pm:IngredientUsageInGrams 30 .
+
+
+###  http://example.org/pm#usage_ravioli_di_ricotta_pasta
+pm:usage_ravioli_di_ricotta_pasta rdf:type owl:NamedIndividual ,
+                                           pm:IngredientUsage ;
+                                  pm:IngredientUsageInMeal pm:ravioli_di_ricotta ;
+                                  pm:UsedIngredient pm:pasta ;
+                                  pm:IngredientUsageInGrams 100 .
+
+
+###  http://example.org/pm#usage_ravioli_di_ricotta_ricotta
+pm:usage_ravioli_di_ricotta_ricotta rdf:type owl:NamedIndividual ,
+                                             pm:IngredientUsage ;
+                                    pm:IngredientUsageInMeal pm:ravioli_di_ricotta ;
+                                    pm:UsedIngredient pm:ricotta ;
+                                    pm:IngredientUsageInGrams 80 .
+
+
+###  http://example.org/pm#usage_ravioli_di_ricotta_tomato_sauce
+pm:usage_ravioli_di_ricotta_tomato_sauce rdf:type owl:NamedIndividual ,
+                                                  pm:IngredientUsage ;
+                                         pm:IngredientUsageInMeal pm:ravioli_di_ricotta ;
+                                         pm:UsedIngredient pm:tomato_sauce ;
+                                         pm:IngredientUsageInGrams 80 .
+
+
+###  http://example.org/pm#usage_ricotta_cake_eggs
+pm:usage_ricotta_cake_eggs rdf:type owl:NamedIndividual ,
+                                    pm:IngredientUsage ;
+                           pm:IngredientUsageInMeal pm:ricotta_cake ;
+                           pm:UsedIngredient pm:eggs ;
+                           pm:IngredientUsageInGrams 50 .
+
+
+###  http://example.org/pm#usage_ricotta_cake_flour
+pm:usage_ricotta_cake_flour rdf:type owl:NamedIndividual ,
+                                     pm:IngredientUsage ;
+                            pm:IngredientUsageInMeal pm:ricotta_cake ;
+                            pm:UsedIngredient pm:flour ;
+                            pm:IngredientUsageInGrams 200 .
+
+
+###  http://example.org/pm#usage_ricotta_cake_oil
+pm:usage_ricotta_cake_oil rdf:type owl:NamedIndividual ,
+                                   pm:IngredientUsage ;
+                          pm:IngredientUsageInMeal pm:ricotta_cake ;
+                          pm:UsedIngredient pm:oil ;
+                          pm:IngredientUsageInGrams 10 .
+
+
+###  http://example.org/pm#usage_ricotta_cake_ricotta
+pm:usage_ricotta_cake_ricotta rdf:type owl:NamedIndividual ,
+                                       pm:IngredientUsage ;
+                              pm:IngredientUsageInMeal pm:ricotta_cake ;
+                              pm:UsedIngredient pm:ricotta ;
+                              pm:IngredientUsageInGrams 80 .
+
+
+###  http://example.org/pm#usage_ricotta_cake_sugar
+pm:usage_ricotta_cake_sugar rdf:type owl:NamedIndividual ,
+                                     pm:IngredientUsage ;
+                            pm:IngredientUsageInMeal pm:ricotta_cake ;
+                            pm:UsedIngredient pm:sugar ;
+                            pm:IngredientUsageInGrams 30 .
+
+
+###  http://example.org/pm#usage_risotto_ai_funghi_champignon
+pm:usage_risotto_ai_funghi_champignon rdf:type owl:NamedIndividual ,
+                                               pm:IngredientUsage ;
+                                      pm:IngredientUsageInMeal pm:risotto_ai_funghi ;
+                                      pm:UsedIngredient pm:champignon ;
+                                      pm:IngredientUsageInGrams 100 .
+
+
+###  http://example.org/pm#usage_risotto_ai_funghi_oil
+pm:usage_risotto_ai_funghi_oil rdf:type owl:NamedIndividual ,
+                                        pm:IngredientUsage ;
+                               pm:IngredientUsageInMeal pm:risotto_ai_funghi ;
+                               pm:UsedIngredient pm:oil ;
+                               pm:IngredientUsageInGrams 10 .
+
+
+###  http://example.org/pm#usage_risotto_ai_funghi_onion
+pm:usage_risotto_ai_funghi_onion rdf:type owl:NamedIndividual ,
+                                          pm:IngredientUsage ;
+                                 pm:IngredientUsageInMeal pm:risotto_ai_funghi ;
+                                 pm:UsedIngredient pm:onion ;
+                                 pm:IngredientUsageInGrams 80 .
+
+
+###  http://example.org/pm#usage_risotto_ai_funghi_rice
+pm:usage_risotto_ai_funghi_rice rdf:type owl:NamedIndividual ,
+                                         pm:IngredientUsage ;
+                                pm:IngredientUsageInMeal pm:risotto_ai_funghi ;
+                                pm:UsedIngredient pm:rice ;
+                                pm:IngredientUsageInGrams 100 .
+
+
+###  http://example.org/pm#usage_roast_duck_duck
+pm:usage_roast_duck_duck rdf:type owl:NamedIndividual ,
+                                  pm:IngredientUsage ;
+                         pm:IngredientUsageInMeal pm:roast_duck ;
+                         pm:UsedIngredient pm:duck ;
+                         pm:IngredientUsageInGrams 200 .
+
+
+###  http://example.org/pm#usage_roast_duck_oil
+pm:usage_roast_duck_oil rdf:type owl:NamedIndividual ,
+                                 pm:IngredientUsage ;
+                        pm:IngredientUsageInMeal pm:roast_duck ;
+                        pm:UsedIngredient pm:oil ;
+                        pm:IngredientUsageInGrams 10 .
+
+
+###  http://example.org/pm#usage_roast_duck_rosemary
+pm:usage_roast_duck_rosemary rdf:type owl:NamedIndividual ,
+                                      pm:IngredientUsage ;
+                             pm:IngredientUsageInMeal pm:roast_duck ;
+                             pm:UsedIngredient pm:rosemary ;
+                             pm:IngredientUsageInGrams 2 .
+
+
+###  http://example.org/pm#usage_roast_duck_salt
+pm:usage_roast_duck_salt rdf:type owl:NamedIndividual ,
+                                  pm:IngredientUsage ;
+                         pm:IngredientUsageInMeal pm:roast_duck ;
+                         pm:UsedIngredient pm:salt ;
+                         pm:IngredientUsageInGrams 5 .
+
+
+###  http://example.org/pm#usage_salmon_pizza_flour
+pm:usage_salmon_pizza_flour rdf:type owl:NamedIndividual ,
+                                     pm:IngredientUsage ;
+                            pm:IngredientUsageInMeal pm:salmon_pizza ;
+                            pm:UsedIngredient pm:flour ;
+                            pm:IngredientUsageInGrams 200 .
+
+
+###  http://example.org/pm#usage_salmon_pizza_mozzarella
+pm:usage_salmon_pizza_mozzarella rdf:type owl:NamedIndividual ,
+                                          pm:IngredientUsage ;
+                                 pm:IngredientUsageInMeal pm:salmon_pizza ;
+                                 pm:UsedIngredient pm:mozzarella ;
+                                 pm:IngredientUsageInGrams 100 .
+
+
+###  http://example.org/pm#usage_salmon_pizza_oil
+pm:usage_salmon_pizza_oil rdf:type owl:NamedIndividual ,
+                                   pm:IngredientUsage ;
+                          pm:IngredientUsageInMeal pm:salmon_pizza ;
+                          pm:UsedIngredient pm:oil ;
+                          pm:IngredientUsageInGrams 10 .
+
+
+###  http://example.org/pm#usage_salmon_pizza_salmon
+pm:usage_salmon_pizza_salmon rdf:type owl:NamedIndividual ,
+                                      pm:IngredientUsage ;
+                             pm:IngredientUsageInMeal pm:salmon_pizza ;
+                             pm:UsedIngredient pm:salmon ;
+                             pm:IngredientUsageInGrams 150 .
+
+
+###  http://example.org/pm#usage_salmon_pizza_tomato_sauce
+pm:usage_salmon_pizza_tomato_sauce rdf:type owl:NamedIndividual ,
+                                            pm:IngredientUsage ;
+                                   pm:IngredientUsageInMeal pm:salmon_pizza ;
+                                   pm:UsedIngredient pm:tomato_sauce ;
+                                   pm:IngredientUsageInGrams 80 .
+
+
+###  http://example.org/pm#usage_sausage_with_peas_oil
+pm:usage_sausage_with_peas_oil rdf:type owl:NamedIndividual ,
+                                        pm:IngredientUsage ;
+                               pm:IngredientUsageInMeal pm:sausage_with_peas ;
+                               pm:UsedIngredient pm:oil ;
+                               pm:IngredientUsageInGrams 10 .
+
+
+###  http://example.org/pm#usage_sausage_with_peas_onion
+pm:usage_sausage_with_peas_onion rdf:type owl:NamedIndividual ,
+                                          pm:IngredientUsage ;
+                                 pm:IngredientUsageInMeal pm:sausage_with_peas ;
+                                 pm:UsedIngredient pm:onion ;
+                                 pm:IngredientUsageInGrams 80 .
+
+
+###  http://example.org/pm#usage_sausage_with_peas_peas
+pm:usage_sausage_with_peas_peas rdf:type owl:NamedIndividual ,
+                                         pm:IngredientUsage ;
+                                pm:IngredientUsageInMeal pm:sausage_with_peas ;
+                                pm:UsedIngredient pm:peas ;
+                                pm:IngredientUsageInGrams 80 .
+
+
+###  http://example.org/pm#usage_sausage_with_peas_salt
+pm:usage_sausage_with_peas_salt rdf:type owl:NamedIndividual ,
+                                         pm:IngredientUsage ;
+                                pm:IngredientUsageInMeal pm:sausage_with_peas ;
+                                pm:UsedIngredient pm:salt ;
+                                pm:IngredientUsageInGrams 5 .
+
+
+###  http://example.org/pm#usage_sausage_with_peas_sausage
+pm:usage_sausage_with_peas_sausage rdf:type owl:NamedIndividual ,
+                                            pm:IngredientUsage ;
+                                   pm:IngredientUsageInMeal pm:sausage_with_peas ;
+                                   pm:UsedIngredient pm:sausage ;
+                                   pm:IngredientUsageInGrams 80 .
+
+
+###  http://example.org/pm#usage_seabass_baked_sea_bass
+pm:usage_seabass_baked_sea_bass rdf:type owl:NamedIndividual ,
+                                         pm:IngredientUsage ;
+                                pm:IngredientUsageInMeal pm:baked_sea_bass ;
+                                pm:UsedIngredient pm:seabass ;
+                                pm:IngredientUsageInGrams 200 .
+
+
+###  http://example.org/pm#usage_spaghetti_alla_carbonara_bacon
+pm:usage_spaghetti_alla_carbonara_bacon rdf:type owl:NamedIndividual ,
+                                                 pm:IngredientUsage ;
+                                        pm:IngredientUsageInMeal pm:spaghetti_alla_carbonara ;
+                                        pm:UsedIngredient pm:bacon ;
+                                        pm:IngredientUsageInGrams 50 .
+
+
+###  http://example.org/pm#usage_spaghetti_alla_carbonara_black_pepper
+pm:usage_spaghetti_alla_carbonara_black_pepper rdf:type owl:NamedIndividual ,
+                                                        pm:IngredientUsage ;
+                                               pm:IngredientUsageInMeal pm:spaghetti_alla_carbonara ;
+                                               pm:UsedIngredient pm:black_pepper ;
+                                               pm:IngredientUsageInGrams 2 .
+
+
+###  http://example.org/pm#usage_spaghetti_alla_carbonara_egg
+pm:usage_spaghetti_alla_carbonara_egg rdf:type owl:NamedIndividual ,
+                                               pm:IngredientUsage ;
+                                      pm:IngredientUsageInMeal pm:spaghetti_alla_carbonara ;
+                                      pm:UsedIngredient pm:egg ;
+                                      pm:IngredientUsageInGrams 50 .
+
+
+###  http://example.org/pm#usage_spaghetti_alla_carbonara_parmesan
+pm:usage_spaghetti_alla_carbonara_parmesan rdf:type owl:NamedIndividual ,
+                                                    pm:IngredientUsage ;
+                                           pm:IngredientUsageInMeal pm:spaghetti_alla_carbonara ;
+                                           pm:UsedIngredient pm:parmesan ;
+                                           pm:IngredientUsageInGrams 30 .
+
+
+###  http://example.org/pm#usage_spaghetti_alla_carbonara_pasta
+pm:usage_spaghetti_alla_carbonara_pasta rdf:type owl:NamedIndividual ,
+                                                 pm:IngredientUsage ;
+                                        pm:IngredientUsageInMeal pm:spaghetti_alla_carbonara ;
+                                        pm:UsedIngredient pm:pasta ;
+                                        pm:IngredientUsageInGrams 100 .
+
+
+###  http://example.org/pm#usage_sparkling_lemonade_lemon
+pm:usage_sparkling_lemonade_lemon rdf:type owl:NamedIndividual ,
+                                           pm:IngredientUsage ;
+                                  pm:IngredientUsageInMeal pm:sparkling_lemonade ;
+                                  pm:UsedIngredient pm:lemon ;
+                                  pm:IngredientUsageInGrams 50 .
+
+
+###  http://example.org/pm#usage_sparkling_lemonade_sparkling_water
+pm:usage_sparkling_lemonade_sparkling_water rdf:type owl:NamedIndividual ,
+                                                     pm:IngredientUsage ;
+                                            pm:IngredientUsageInMeal pm:sparkling_lemonade ;
+                                            pm:UsedIngredient pm:sparkling_water ;
+                                            pm:IngredientUsageInGrams 200 .
+
+
+###  http://example.org/pm#usage_sparkling_lemonade_sugar
+pm:usage_sparkling_lemonade_sugar rdf:type owl:NamedIndividual ,
+                                           pm:IngredientUsage ;
+                                  pm:IngredientUsageInMeal pm:sparkling_lemonade ;
+                                  pm:UsedIngredient pm:sugar ;
+                                  pm:IngredientUsageInGrams 30 .
+
+
+###  http://example.org/pm#usage_strawberry_almond_tart_almonds
+pm:usage_strawberry_almond_tart_almonds rdf:type owl:NamedIndividual ,
+                                                 pm:IngredientUsage ;
+                                        pm:IngredientUsageInMeal pm:strawberry_almond_tart ;
+                                        pm:UsedIngredient pm:almonds ;
+                                        pm:IngredientUsageInGrams 30 .
+
+
+###  http://example.org/pm#usage_strawberry_almond_tart_butter
+pm:usage_strawberry_almond_tart_butter rdf:type owl:NamedIndividual ,
+                                                pm:IngredientUsage ;
+                                       pm:IngredientUsageInMeal pm:strawberry_almond_tart ;
+                                       pm:UsedIngredient pm:butter ;
+                                       pm:IngredientUsageInGrams 20 .
+
+
+###  http://example.org/pm#usage_strawberry_almond_tart_flour
+pm:usage_strawberry_almond_tart_flour rdf:type owl:NamedIndividual ,
+                                               pm:IngredientUsage ;
+                                      pm:IngredientUsageInMeal pm:strawberry_almond_tart ;
+                                      pm:UsedIngredient pm:flour ;
+                                      pm:IngredientUsageInGrams 200 .
+
+
+###  http://example.org/pm#usage_strawberry_almond_tart_strawberry
+pm:usage_strawberry_almond_tart_strawberry rdf:type owl:NamedIndividual ,
+                                                    pm:IngredientUsage ;
+                                           pm:IngredientUsageInMeal pm:strawberry_almond_tart ;
+                                           pm:UsedIngredient pm:strawberry ;
+                                           pm:IngredientUsageInGrams 100 .
+
+
+###  http://example.org/pm#usage_strawberry_almond_tart_sugar
+pm:usage_strawberry_almond_tart_sugar rdf:type owl:NamedIndividual ,
+                                               pm:IngredientUsage ;
+                                      pm:IngredientUsageInMeal pm:strawberry_almond_tart ;
+                                      pm:UsedIngredient pm:sugar ;
+                                      pm:IngredientUsageInGrams 30 .
+
+
+###  http://example.org/pm#usage_tiramisu_coffee
+pm:usage_tiramisu_coffee rdf:type owl:NamedIndividual ,
+                                  pm:IngredientUsage ;
+                         pm:IngredientUsageInMeal pm:tiramisu ;
+                         pm:UsedIngredient pm:coffee ;
+                         pm:IngredientUsageInGrams 5 .
+
+
+###  http://example.org/pm#usage_tiramisu_egg
+pm:usage_tiramisu_egg rdf:type owl:NamedIndividual ,
+                               pm:IngredientUsage ;
+                      pm:IngredientUsageInMeal pm:tiramisu ;
+                      pm:UsedIngredient pm:egg ;
+                      pm:IngredientUsageInGrams 50 .
+
+
+###  http://example.org/pm#usage_tiramisu_ladyfinger
+pm:usage_tiramisu_ladyfinger rdf:type owl:NamedIndividual ,
+                                      pm:IngredientUsage ;
+                             pm:IngredientUsageInMeal pm:tiramisu ;
+                             pm:UsedIngredient pm:ladyfinger ;
+                             pm:IngredientUsageInGrams 20 .
+
+
+###  http://example.org/pm#usage_tiramisu_mascarpone
+pm:usage_tiramisu_mascarpone rdf:type owl:NamedIndividual ,
+                                      pm:IngredientUsage ;
+                             pm:IngredientUsageInMeal pm:tiramisu ;
+                             pm:UsedIngredient pm:mascarpone ;
+                             pm:IngredientUsageInGrams 60 .
+
+
+###  http://example.org/pm#usage_tiramisu_sugar
+pm:usage_tiramisu_sugar rdf:type owl:NamedIndividual ,
+                                 pm:IngredientUsage ;
+                        pm:IngredientUsageInMeal pm:tiramisu ;
+                        pm:UsedIngredient pm:sugar ;
+                        pm:IngredientUsageInGrams 30 .
+
+
+###  http://example.org/pm#usage_truffle_pizza_flour
+pm:usage_truffle_pizza_flour rdf:type owl:NamedIndividual ,
+                                      pm:IngredientUsage ;
+                             pm:IngredientUsageInMeal pm:truffle_pizza ;
+                             pm:UsedIngredient pm:flour ;
+                             pm:IngredientUsageInGrams 200 .
+
+
+###  http://example.org/pm#usage_truffle_pizza_mozzarella
+pm:usage_truffle_pizza_mozzarella rdf:type owl:NamedIndividual ,
+                                           pm:IngredientUsage ;
+                                  pm:IngredientUsageInMeal pm:truffle_pizza ;
+                                  pm:UsedIngredient pm:mozzarella ;
+                                  pm:IngredientUsageInGrams 100 .
+
+
+###  http://example.org/pm#usage_truffle_pizza_oil
+pm:usage_truffle_pizza_oil rdf:type owl:NamedIndividual ,
+                                    pm:IngredientUsage ;
+                           pm:IngredientUsageInMeal pm:truffle_pizza ;
+                           pm:UsedIngredient pm:oil ;
+                           pm:IngredientUsageInGrams 10 .
+
+
+###  http://example.org/pm#usage_truffle_pizza_truffle
+pm:usage_truffle_pizza_truffle rdf:type owl:NamedIndividual ,
+                                        pm:IngredientUsage ;
+                               pm:IngredientUsageInMeal pm:truffle_pizza ;
+                               pm:UsedIngredient pm:truffle ;
+                               pm:IngredientUsageInGrams 10 .
+
+
+###  http://example.org/pm#usage_vegan_pizza_carrot
+pm:usage_vegan_pizza_carrot rdf:type owl:NamedIndividual ,
+                                     pm:IngredientUsage ;
+                            pm:IngredientUsageInMeal pm:vegan_pizza ;
+                            pm:UsedIngredient pm:carrot ;
+                            pm:IngredientUsageInGrams 80 .
+
+
+###  http://example.org/pm#usage_vegan_pizza_flour
+pm:usage_vegan_pizza_flour rdf:type owl:NamedIndividual ,
+                                    pm:IngredientUsage ;
+                           pm:IngredientUsageInMeal pm:vegan_pizza ;
+                           pm:UsedIngredient pm:flour ;
+                           pm:IngredientUsageInGrams 200 .
+
+
+###  http://example.org/pm#usage_vegan_pizza_oil
+pm:usage_vegan_pizza_oil rdf:type owl:NamedIndividual ,
+                                  pm:IngredientUsage ;
+                         pm:IngredientUsageInMeal pm:vegan_pizza ;
+                         pm:UsedIngredient pm:oil ;
+                         pm:IngredientUsageInGrams 10 .
+
+
+###  http://example.org/pm#usage_vegan_pizza_tomato_sauce
+pm:usage_vegan_pizza_tomato_sauce rdf:type owl:NamedIndividual ,
+                                           pm:IngredientUsage ;
+                                  pm:IngredientUsageInMeal pm:vegan_pizza ;
+                                  pm:UsedIngredient pm:tomato_sauce ;
+                                  pm:IngredientUsageInGrams 80 .
+
+
+###  http://example.org/pm#usage_vegan_pizza_zucchini
+pm:usage_vegan_pizza_zucchini rdf:type owl:NamedIndividual ,
+                                       pm:IngredientUsage ;
+                              pm:IngredientUsageInMeal pm:vegan_pizza ;
+                              pm:UsedIngredient pm:zucchini ;
+                              pm:IngredientUsageInGrams 100 .
+
+
+###  http://example.org/pm#usage_water_water
+pm:usage_water_water rdf:type owl:NamedIndividual ,
+                              pm:IngredientUsage ;
+                     pm:IngredientUsageInMeal pm:water ;
+                     pm:UsedIngredient pm:water ;
+                     pm:IngredientUsageInGrams 200 .
+
+
+###  http://example.org/pm#vegan
+pm:vegan rdf:type owl:NamedIndividual ,
+                  pm:Diet .
+
+
+###  http://example.org/pm#vegan_pizza
+pm:vegan_pizza rdf:type owl:NamedIndividual ,
+                        pm:Meal ;
+               pm:MealHasCalories 889.4 ;
+               pm:ObjectHasName "Vegan Pizza" .
+
+
+###  http://example.org/pm#vegetarian
+pm:vegetarian rdf:type owl:NamedIndividual ,
+                       pm:Diet .
+
+
+###  http://example.org/pm#water
+pm:water rdf:type owl:NamedIndividual ,
+                  pm:Ingredient ,
+                  pm:Meal ;
+         pm:IngredientHasCalories 0 ;
+         pm:MealHasCalories 0.0 ;
+         pm:ObjectHasName "Water" .
+
+
+###  http://example.org/pm#zucchini
+pm:zucchini rdf:type owl:NamedIndividual ,
+                     pm:Ingredient ;
+            pm:IngredientHasCalories 17 ;
+            pm:ObjectHasName "zucchini" .
+
+
+#################################################################
+#    Rules
+#################################################################
+
+pm:usage rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+pm:meal rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+pm:ingredient rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "Rule that checks if a meal is not compatible with Lactose Intolerant guests" ;
+   rdfs:label "Rule2" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> pm:IngredientUsageInMeal ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> pm:usage ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> pm:meal
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> pm:UsedIngredient ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> pm:usage ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> pm:ingredient
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#propertyPredicate> pm:IngredientNotCompatibleWithFoodTypePreference ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument1> pm:ingredient ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument2> pm:avoidDairy
+                                                                           ] ;
+                                                                 rdf:rest rdf:nil
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> pm:MealNotCompatibleWithFoodPreference ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> pm:meal ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> pm:avoidDairy
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "Rule that checks if a meal is not compatible with Gluten Intolerant guests" ;
+   rdfs:label "Rule1" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> pm:IngredientUsageInMeal ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> pm:usage ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> pm:meal
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> pm:UsedIngredient ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> pm:usage ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> pm:ingredient
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#propertyPredicate> pm:IngredientNotCompatibleWithFoodTypePreference ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument1> pm:ingredient ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument2> pm:avoidGluten
+                                                                           ] ;
+                                                                 rdf:rest rdf:nil
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> pm:MealNotCompatibleWithFoodPreference ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> pm:meal ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> pm:avoidGluten
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "Rule that checks if a meal is not compatible with Vegan guests" ;
+   rdfs:label "Rule4" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> pm:IngredientUsageInMeal ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> pm:usage ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> pm:meal
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> pm:UsedIngredient ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> pm:usage ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> pm:ingredient
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#propertyPredicate> pm:IngredientNotCompatibleWithFoodTypePreference ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument1> pm:ingredient ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument2> pm:vegan
+                                                                           ] ;
+                                                                 rdf:rest rdf:nil
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> pm:MealNotCompatibleWithFoodPreference ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> pm:meal ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> pm:vegan
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "Rule that checks if a meal is not compatible with Vegetarian guests" ;
+   rdfs:label "Rule3" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> pm:IngredientUsageInMeal ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> pm:usage ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> pm:meal
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> pm:UsedIngredient ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> pm:usage ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> pm:ingredient
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#propertyPredicate> pm:IngredientNotCompatibleWithFoodTypePreference ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument1> pm:ingredient ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument2> pm:vegetarian
+                                                                           ] ;
+                                                                 rdf:rest rdf:nil
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> pm:MealNotCompatibleWithFoodPreference ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> pm:meal ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> pm:vegetarian
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi

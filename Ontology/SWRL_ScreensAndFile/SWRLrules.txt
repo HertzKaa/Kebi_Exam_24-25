@@ -1,0 +1,27 @@
+#############################################
+# SWRL Rules for Dietary Restrictions
+#############################################
+
+# 1. Rule that checks if a meal is not compatible with Gluten Intolerant guests
+pm:IngredientUsageInMeal(?usage, ?meal) ^ 
+pm:UsedIngredient(?usage, ?ingredient) ^ 
+pm:IngredientNotCompatibleWithFoodTypePreference(?ingredient, pm:avoidGluten) -> 
+pm:MealNotCompatibleWithFoodPreference(?meal, pm:avoidGluten)
+
+# 2. Rule that checks if a meal is not compatible with Lactose Intolerant guests
+pm:IngredientUsageInMeal(?usage, ?meal) ^ 
+pm:UsedIngredient(?usage, ?ingredient) ^ 
+pm:IngredientNotCompatibleWithFoodTypePreference(?ingredient, pm:avoidDairy) -> 
+pm:MealNotCompatibleWithFoodPreference(?meal, pm:avoidDairy)
+
+# 3. Rule that checks if a meal is not compatible with Vegetarian guests
+pm:IngredientUsageInMeal(?usage, ?meal) ^ 
+pm:UsedIngredient(?usage, ?ingredient) ^ 
+pm:IngredientNotCompatibleWithFoodTypePreference(?ingredient, pm:vegetarian) -> 
+pm:MealNotCompatibleWithFoodPreference(?meal, pm:vegetarian)
+
+# 4. Rule that checks if a meal is not compatible with Vegan guests
+pm:IngredientUsageInMeal(?usage, ?meal) ^ 
+pm:UsedIngredient(?usage, ?ingredient) ^ 
+pm:IngredientNotCompatibleWithFoodTypePreference(?ingredient, pm:vegan) -> 
+pm:MealNotCompatibleWithFoodPreference(?meal, pm:vegan)

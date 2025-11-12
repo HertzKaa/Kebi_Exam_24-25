@@ -1,0 +1,42 @@
+PREFIX pm: <http://example.org/pm#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ?nomePiatto ?calorie
+WHERE {
+  ?piatto rdf:type pm:Meal .
+  ?piatto pm:ObjectHasName ?nomePiatto .
+  ?piatto pm:MealHasCalories ?calorie .
+
+  # 1. Calorie Filter
+  FILTER (?calorie < 600)
+
+  # 2. Vegetarian Filter
+  FILTER NOT EXISTS {
+    { 
+      ?piatto pm:MealNotCompatibleWithFoodPreference pm:vegetarian . 
+    }
+    UNION
+    { 
+      # Simulate SWRL
+      ?usage pm:IngredientUsageInMeal ?piatto .
+      ?usage pm:UsedIngredient ?ingrediente .
+      ?ingrediente pm:IngredientNotCompatibleWithFoodTypePreference pm:vegetarian .
+    }
+  }
+
+  # 3. Dairy Filter
+  FILTER NOT EXISTS {
+    { 
+      ?piatto pm:MealNotCompatibleWithFoodPreference pm:avoidDairy . 
+    }
+    UNION
+    { 
+      # Simulate SWRL
+      ?usage2 pm:IngredientUsageInMeal ?piatto .
+      ?usage2 pm:UsedIngredient ?ingrediente2 .
+      ?ingrediente2 pm:IngredientNotCompatibleWithFoodTypePreference pm:avoidDairy .
+    }
+  }
+}
+ORDER BY ASC(?calorie)

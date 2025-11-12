@@ -1,0 +1,78 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix pm: <http://example.org/pm#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+#######################################################
+# Shape 1: Ingredient must have calories
+#######################################################
+pm:IngredientShape
+    a sh:NodeShape ;
+    sh:targetClass pm:Ingredient ;
+    sh:property [
+        sh:path pm:IngredientHasCalories ;
+        sh:datatype xsd:integer ;
+        sh:minCount 1 ;
+        sh:message "Every Ingredient must have at least one calorie value (integer)." ;
+    ] ;
+    sh:property [
+        sh:path pm:ObjectHasName ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:message "Every Ingredient must have a name." ;
+    ] .
+
+#######################################################
+# Shape 2: Meal must have at least one IngredientUsage
+#######################################################
+pm:MealShape
+    a sh:NodeShape ;
+    sh:targetClass pm:Meal ;
+    sh:property [
+        sh:path [ sh:inversePath pm:IngredientUsageInMeal ] ;
+        sh:minCount 1 ;
+        sh:message "Each Meal must be linked (inverse) to at least one IngredientUsage." ;
+    ] ;
+    sh:property [
+        sh:path pm:ObjectHasName ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:message "Each Meal must have a name." ;
+    ] .
+
+#######################################################
+# Shape 3: Meal calories must be >= 0
+#######################################################
+pm:MealCaloriesShape
+    a sh:NodeShape ;
+    sh:targetClass pm:Meal ;
+    sh:property [
+        sh:path pm:MealHasCalories ;
+        sh:datatype xsd:decimal ;
+        sh:minInclusive 0 ;
+        sh:message "Meal calories must be greater than or equal to 0." ;
+    ] .
+
+#######################################################
+# Shape 4: Guest must have at least one Food Type
+#######################################################
+pm:GuestShape
+    a sh:NodeShape ;
+    sh:targetClass pm:Guest ;
+    sh:property [
+        sh:path pm:GuestHasFoodType ;
+        sh:minCount 1 ;
+        sh:message "Each Guest must have at least one FoodType." ;
+    ] .
+
+#######################################################
+# Shape 5: FoodTypePreference must be linked correctly
+#######################################################
+pm:FoodPreferenceShape
+    a sh:NodeShape ;
+    sh:targetClass pm:FoodTypePreference ;
+    sh:property [
+        sh:path pm:ObjectHasName ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:message "Each FoodTypePreference must have a name." ;
+    ] .

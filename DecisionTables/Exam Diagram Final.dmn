@@ -1,0 +1,2111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dmn:definitions xmlns:dmn="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:triso="http://www.trisotech.com/2015/triso/modeling" xmlns="http://www.trisotech.com/definitions/_b9ad43b7-24bb-4dc2-bc1b-3355f37a7cf1" xmlns:boxedext="https://www.trisotech.com/spec/DMN/20191111/EXT/" xmlns:drools="http://www.drools.org/kie/dmn/1.1" xmlns:feel="http://www.omg.org/spec/FEEL/20140401" xmlns:i18n="http://www.omg.org/spec/BPMN/non-normative/extensions/i18n/1.0" xmlns:openapi="https://openapis.org/omg/extension/1.0" xmlns:rss="http://purl.org/rss/2.0/" xmlns:sdmn="https://www.omg.org/spec/SDMN/" xmlns:tc="http://www.omg.org/spec/DMN/20160719/testcase" xmlns:trisodmn="http://www.trisotech.com/2016/triso/dmn" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="TESTEsame3" name="TEST Esame 3" namespace="http://www.trisotech.com/definitions/_b9ad43b7-24bb-4dc2-bc1b-3355f37a7cf1" exporter="Decision Modeler" exporterVersion="9.10.1" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.7.0" triso:logoChoice="Default" xml:lang="en">
+  <dmn:itemDefinition id="ItemDefinition_0ezoz6z" label="tguestAllergiesType" name="tguestAllergiesType">
+    <dmn:allowedValues id="UnaryTests_0paadmh">
+      <dmn:extensionElements>
+        <triso:constraintDetails constraintsType="expression" id="_5476f042-c25b-4d9d-8e67-1686733b722e">
+          <triso:value>"Dairy", "Eggs", "Gluten", "Nuts", "Shellfish"</triso:value>
+          <triso:display>"Dairy", "Eggs", "Gluten", "Nuts", "Shellfish"</triso:display>
+        </triso:constraintDetails>
+      </dmn:extensionElements>
+      <dmn:text>"Dairy", "Eggs", "Gluten", "Nuts", "Shellfish"</dmn:text>
+    </dmn:allowedValues>
+  </dmn:itemDefinition>
+  <dmn:itemDefinition id="ItemDefinition_1a621dd" label="guestAllergiesType" name="guestAllergiesType" isCollection="true" />
+  <dmn:itemDefinition id="ItemDefinition_0yxza5w" label="tguestDietType" name="tguestDietType">
+    <dmn:allowedValues id="UnaryTests_1i3rg5z">
+      <dmn:extensionElements>
+        <triso:constraintDetails constraintsType="expression" id="_28fc9222-9bc4-4bce-a0dd-5df3b722cd23">
+          <triso:value>"vegetarian", "vegan", "carnivore"</triso:value>
+          <triso:display>"vegetarian", "vegan", "carnivore"</triso:display>
+        </triso:constraintDetails>
+      </dmn:extensionElements>
+      <dmn:text>"vegetarian", "vegan", "carnivore"</dmn:text>
+    </dmn:allowedValues>
+  </dmn:itemDefinition>
+  <dmn:itemDefinition id="ItemDefinition_0jjr40v" label="guestDietType" name="guestDietType" isCollection="true" />
+  <dmn:itemDefinition id="ItemDefinition_1opwriu" label="ttguestDietType" name="ttguestDietType">
+    <dmn:allowedValues id="UnaryTests_1ek8dx7">
+      <dmn:extensionElements>
+        <triso:constraintDetails constraintsType="enumeration" id="_78190d2e-9d27-4052-adc2-5e2810fbbf29">
+          <triso:value>"Carnivore","Vegan","Vegetarian"</triso:value>
+          <triso:display>"Carnivore", "Vegan", "Vegetarian"</triso:display>
+          <triso:choices>
+            <triso:value>"Carnivore"</triso:value>
+            <triso:display>"Carnivore"</triso:display>
+          </triso:choices>
+          <triso:choices>
+            <triso:value>"Vegan"</triso:value>
+            <triso:display>"Vegan"</triso:display>
+          </triso:choices>
+          <triso:choices>
+            <triso:value>"Vegetarian"</triso:value>
+            <triso:display>"Vegetarian"</triso:display>
+          </triso:choices>
+        </triso:constraintDetails>
+      </dmn:extensionElements>
+      <dmn:text>"Carnivore","Vegan","Vegetarian"</dmn:text>
+    </dmn:allowedValues>
+  </dmn:itemDefinition>
+  <dmn:itemDefinition id="ItemDefinition_1adm9ga" label="tguestDietType2" name="tguestDietType2">
+    <dmn:allowedValues id="UnaryTests_14snj7w">
+      <dmn:extensionElements>
+        <triso:constraintDetails constraintsType="enumeration" id="_20ebdefd-dbd7-413c-8812-36fbe09a5a71">
+          <triso:value>"Carnivore","Vegetarian","Vegan"</triso:value>
+          <triso:display>"Carnivore", "Vegetarian", "Vegan"</triso:display>
+          <triso:choices>
+            <triso:value>"Carnivore"</triso:value>
+            <triso:display>"Carnivore"</triso:display>
+          </triso:choices>
+          <triso:choices>
+            <triso:value>"Vegetarian"</triso:value>
+            <triso:display>"Vegetarian"</triso:display>
+          </triso:choices>
+          <triso:choices>
+            <triso:value>"Vegan"</triso:value>
+            <triso:display>"Vegan"</triso:display>
+          </triso:choices>
+        </triso:constraintDetails>
+      </dmn:extensionElements>
+      <dmn:text>"Carnivore","Vegetarian","Vegan"</dmn:text>
+    </dmn:allowedValues>
+  </dmn:itemDefinition>
+  <dmn:itemDefinition id="ItemDefinition_1dm7288" label="guestDietType2" name="guestDietType2" isCollection="true" />
+  <dmn:itemDefinition id="ItemDefinition_0oi5sbe" label="tguestAllergiesType2" name="tguestAllergiesType2">
+    <dmn:allowedValues id="UnaryTests_1y5nnus">
+      <dmn:extensionElements>
+        <triso:constraintDetails constraintsType="enumeration" id="_fb8c6879-4450-4f9d-b000-528e4ebb7ef8">
+          <triso:value>"Dairy","Eggs","Gluten","Nuts","Shellfish"</triso:value>
+          <triso:display>"Dairy", "Eggs", "Gluten", "Nuts", "Shellfish"</triso:display>
+          <triso:choices>
+            <triso:value>"Dairy"</triso:value>
+            <triso:display>"Dairy"</triso:display>
+          </triso:choices>
+          <triso:choices>
+            <triso:value>"Eggs"</triso:value>
+            <triso:display>"Eggs"</triso:display>
+          </triso:choices>
+          <triso:choices>
+            <triso:value>"Gluten"</triso:value>
+            <triso:display>"Gluten"</triso:display>
+          </triso:choices>
+          <triso:choices>
+            <triso:value>"Nuts"</triso:value>
+            <triso:display>"Nuts"</triso:display>
+          </triso:choices>
+          <triso:choices>
+            <triso:value>"Shellfish"</triso:value>
+            <triso:display>"Shellfish"</triso:display>
+          </triso:choices>
+        </triso:constraintDetails>
+      </dmn:extensionElements>
+      <dmn:text>"Dairy","Eggs","Gluten","Nuts","Shellfish"</dmn:text>
+    </dmn:allowedValues>
+  </dmn:itemDefinition>
+  <dmn:itemDefinition id="ItemDefinition_1983cnh" label="guestAllergiesType2" name="guestAllergiesType2" isCollection="true" />
+  <dmn:decision id="ingredients_info" name="Ingredients List" triso:readOnly="false">
+    <dmn:variable id="_f7361ebb-a9f0-4d57-b1ee-e32754af3715" name="Ingredients List" typeRef="feel:string" />
+    <dmn:informationRequirement id="InformationRequirement_1tdt3t6" triso:readOnly="false">
+      <dmn:requiredInput href="#_00498063-56d6-428d-b2b3-5665e642902e" />
+    </dmn:informationRequirement>
+    <dmn:informationRequirement id="InformationRequirement_0bdg9fc" triso:readOnly="false">
+      <dmn:requiredInput href="#_54bfb8e9-30df-4803-8010-3b52064b494b" />
+    </dmn:informationRequirement>
+    <dmn:informationRequirement id="InformationRequirement_00a0fhs">
+      <dmn:requiredInput href="#isVegan" />
+    </dmn:informationRequirement>
+    <dmn:informationRequirement id="InformationRequirement_05omh96">
+      <dmn:requiredInput href="#isvegetarian" />
+    </dmn:informationRequirement>
+    <dmn:informationRequirement id="InformationRequirement_0y9pz7r">
+      <dmn:requiredInput href="#isLactoseintolerant" />
+    </dmn:informationRequirement>
+    <dmn:informationRequirement id="InformationRequirement_0167f86">
+      <dmn:requiredInput href="#isGlutenIntolerant" />
+    </dmn:informationRequirement>
+    <dmn:informationRequirement id="InformationRequirement_0dzt3af">
+      <dmn:requiredInput href="#isAllergicToNuts" />
+    </dmn:informationRequirement>
+    <dmn:informationRequirement id="InformationRequirement_0erau22">
+      <dmn:requiredInput href="#isAllergicToEggs" />
+    </dmn:informationRequirement>
+    <dmn:informationRequirement id="InformationRequirement_0rr4ecq">
+      <dmn:requiredInput href="#isAllergicToShellfish" />
+    </dmn:informationRequirement>
+    <dmn:authorityRequirement id="AuthorityRequirement_1en9k8j" triso:readOnly="false">
+      <dmn:requiredAuthority href="#_18232357-69fc-40d2-8f48-1763c79cd313" />
+    </dmn:authorityRequirement>
+    <dmn:authorityRequirement id="AuthorityRequirement_1c3fjv3">
+      <dmn:requiredAuthority href="#ingredientsFile" />
+    </dmn:authorityRequirement>
+    <dmn:decisionTable id="_35957422-9977-442f-8165-0461f587d6d5" typeRef="feel:string" hitPolicy="COLLECT" outputLabel="Ingredients_info" triso:descriptionVisible="false" triso:expressionId="_92bb5e59-0f50-4c1f-ac67-d83601e780a5">
+      <dmn:input id="InputClause_14xsr6a" label="Is Vegetarian">
+        <dmn:inputExpression id="LiteralExpression_0ihq395" typeRef="boolean">
+          <dmn:text>isVegetarian</dmn:text>
+        </dmn:inputExpression>
+      </dmn:input>
+      <dmn:input id="InputClause_0wwdr9s" label="Is Vegan">
+        <dmn:inputExpression id="LiteralExpression_1w8ce5h" typeRef="boolean">
+          <dmn:text>isVegan</dmn:text>
+        </dmn:inputExpression>
+      </dmn:input>
+      <dmn:input id="_e9afcb58-045b-420c-b462-e8d92a87ba61" label="Dairy" triso:allowNull="true">
+        <dmn:inputExpression id="LiteralExpression_1x9y54c" typeRef="boolean">
+          <dmn:text>isLactoseIntolerant</dmn:text>
+        </dmn:inputExpression>
+      </dmn:input>
+      <dmn:input id="_8b650f28-418e-4758-9d16-901d8d22d50a" label="Eggs" triso:allowNull="true">
+        <dmn:inputExpression id="LiteralExpression_14f4hax" typeRef="boolean">
+          <dmn:text>isAllergicToEggs</dmn:text>
+        </dmn:inputExpression>
+      </dmn:input>
+      <dmn:input id="_eb329d10-ffed-4824-9682-391250c2bf59" label="Gluten" triso:allowNull="true">
+        <dmn:inputExpression id="LiteralExpression_0g108yz" typeRef="boolean">
+          <dmn:text>isAllergicToGluten</dmn:text>
+        </dmn:inputExpression>
+      </dmn:input>
+      <dmn:input id="_bcf2021f-c4e2-4c81-99a0-9a43b04ac20c" label="Nuts" triso:allowNull="true">
+        <dmn:inputExpression id="LiteralExpression_17bgd91" typeRef="boolean">
+          <dmn:text>isAllergicToNuts</dmn:text>
+        </dmn:inputExpression>
+      </dmn:input>
+      <dmn:input id="_51d81e0f-35d5-4d87-a3d6-50abccb684f1" label="Shellfish" triso:allowNull="true">
+        <dmn:inputExpression id="LiteralExpression_16unfj6" typeRef="boolean">
+          <dmn:text>isAllergicToShellfish</dmn:text>
+        </dmn:inputExpression>
+      </dmn:input>
+      <dmn:output id="_7066b09c-85f2-48b6-8ed9-4139c70c7b8a" label="Ingredients" name="ingredients" typeRef="string" triso:allowNull="true">
+        <dmn:outputValues id="UnaryTests_0k15y0d" triso:constraintsType="expression">
+          <dmn:text></dmn:text>
+        </dmn:outputValues>
+      </dmn:output>
+      <dmn:rule id="_c4dc15dc-b61b-4dcc-bc3a-0484936f1a00">
+        <dmn:inputEntry id="UnaryTests_0yxm5tr">
+          <dmn:text></dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="UnaryTests_0sje195">
+          <dmn:text></dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_b34c61c3-dd2a-43d6-b8fd-a64ca26f2e4c">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_72b734bb-a764-4bc8-b427-e8748e820edf">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_52380678-0bcf-475a-b0a1-a55912835c55">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_a99a3cda-e30f-4b3a-8ebd-2cafa4f88ded">
+          <dmn:text>true</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_70e03784-33c3-4091-90dc-d881dfdd667c">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_2d84972c-179e-4654-b44b-4d32bc9727ac">
+          <dmn:text>"almonds"</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="_b68d6969-302c-415d-99da-04faf9ff83e0">
+        <dmn:inputEntry id="UnaryTests_0lxrhak">
+          <dmn:text>false</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="UnaryTests_17lxkfx">
+          <dmn:text>false</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_3159d13c-9e50-4d60-8016-dc5f313de8cb">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_b84050f8-dc41-4a57-ba7d-08a5eaaf597d">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_45f40fba-b8fc-49e1-96a4-d19fec81c793">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_25d49173-99cd-40c6-a729-4a9b26182f9c">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_cda10ffc-65ec-4ca1-b430-de92194ecf76">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_80c22849-805c-4aee-a91d-b538a8b8b49a">
+          <dmn:text>"bacon"</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="_a348b209-4fe2-4ab5-9325-363f68269818">
+        <dmn:inputEntry id="UnaryTests_1q71cq1">
+          <dmn:text></dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="UnaryTests_1rcvrrc">
+          <dmn:text></dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_9c32ae8f-1fb0-4de7-88ce-2cbef38d1c66">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_15bf3800-e148-42f7-a3ac-470d17559b87">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_1a6ae774-9ffc-4a4a-8f8e-3aba75b717ab">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_69582d42-9b44-4549-9ccf-7f1dfad43513">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_30e2eb29-7238-4d69-a9ee-28fdd0b51ecf">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_3b18a806-768b-4360-b29e-6d7cf14ba8d0">
+          <dmn:text>"basil"</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="_d35c2cb3-dd32-47f5-aca7-c79b6946f3a7">
+        <dmn:inputEntry id="UnaryTests_1jjqdd3">
+          <dmn:text>false</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="UnaryTests_1pm2f4t">
+          <dmn:text>false</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_3063878c-1d65-40f4-a243-5e2c9c52c6dd">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_8762981a-2da2-4728-9bb9-71f91afe655d">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_65e30179-38e9-46e1-95f3-a4869eca8ffb">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_0336a4df-32e2-4171-9875-86ced2104dc2">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_644c71e7-da73-4e54-aa8c-93072b7c1f91">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_d3278f60-7c21-44be-a0ad-1785c06be941">
+          <dmn:text>"beef"</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="_28992620-1b17-4c61-8cb3-eb532497c2b8">
+        <dmn:inputEntry id="UnaryTests_1p1nqtc">
+          <dmn:text></dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="UnaryTests_0v2bgz0">
+          <dmn:text></dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_9e4bfd0e-9952-48db-8638-2b6ac4932e7d">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_85afd378-09d1-4794-95f5-ebe86c68f6e5">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_c32d8d0a-1ffb-4c1a-99fa-c0a2cf6b0234">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_2136cfe6-b47f-4d19-87cc-a0b08d6ef41b">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_8b52cd6e-5aad-45eb-800b-9b68077d66ff">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_68ad4c2d-b2dd-4006-8442-e9187f008e81">
+          <dmn:text>"black_pepper"</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="_ed338511-0c37-4ead-ac90-96621a665f05">
+        <dmn:inputEntry id="UnaryTests_1i8m9ir">
+          <dmn:text></dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="UnaryTests_0s1zqab">
+          <dmn:text>false</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_3aa64ed6-bf8e-456d-a555-1cac1511cf5e">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_8387ecfa-0d6a-43e8-9e19-2b0719844ff6">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_66eb2a9c-85c5-4bc3-9a7b-8b24000f8898">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_9868865f-1175-4f51-96bd-dc4b94d95f31">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_ea22429c-67f0-4ca3-b46c-92f1c7cb7ae5">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_dffb6094-c5e2-4f58-92cb-a2a891788353">
+          <dmn:text>"butter"</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="_763b7260-753b-4b30-9ab5-0cd35038412c">
+        <dmn:inputEntry id="UnaryTests_0kwf4py">
+          <dmn:text></dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="UnaryTests_0ecbn0s">
+          <dmn:text></dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_533a6254-f664-47f2-9541-8f82c40111a1">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_ef0a9f90-5e84-47a1-8dad-c4c6aa5eb2d6">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_bd929902-beb9-458d-8804-599e3f5268ce">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_55b4e481-dcd9-4a16-a757-c01f430e082b">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_5253b62e-23e9-4a8b-91fa-75170561b5f4">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_4bbef507-f3eb-4bc5-ac78-daff9b6decdd">
+          <dmn:text>"carrot"</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="_0d2b55d0-fffd-4fd5-9087-bc3a84b0b105">
+        <dmn:inputEntry id="UnaryTests_1a8zwk3">
+          <dmn:text></dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="UnaryTests_0lttuy6">
+          <dmn:text></dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_92f2cee2-6514-49ac-ac08-ca34aea9ad59">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_40ca38ec-567f-4377-b922-bf0965810922">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_01d1675d-256b-43f6-ad00-8f3ed4d05a40">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_7bb201e5-6636-41e7-ad0d-4c4b26651355">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_b6327e0d-a77b-485a-8dd9-b8b9ff5050d7">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_a0754eb1-8e3c-43d7-967b-1d824fc54011">
+          <dmn:text>"champignon"</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="_8a2c00bd-205d-4e6e-bc4c-943ace1febf4">
+        <dmn:inputEntry id="UnaryTests_0jdixzi">
+          <dmn:text>false</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="UnaryTests_1naobfm">
+          <dmn:text>false</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_fbd588c3-f4b6-4b1a-a7e3-2a41838869f2">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_052cc836-5360-41e5-b83a-d5b1d9e61fa1">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_37d8d8ae-810e-4d00-83ca-c95a33e1e679">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_2106e8f9-74c1-4d5d-841c-d0442e0b05ea">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_7a2f0bed-6c14-4c7f-a278-f4cb02b5d462">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_f275d5be-0ef5-470d-aee6-d450bb75df38">
+          <dmn:text>"chicken"
+</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="_3daca454-69f4-4b58-99c6-09a1d35a92e6">
+        <dmn:inputEntry id="UnaryTests_08e8cze">
+          <dmn:text></dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="UnaryTests_175qcky">
+          <dmn:text></dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_4313d721-7e6b-46d2-a966-88b93aacaf9e">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_4a9ce852-82a6-4a2b-b20a-642f36612b50">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_a48df4a9-bc83-48d2-bb6a-be8dd3d2f182">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_21e5c54d-0a35-47c0-9486-82ff0ec7b832">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_7f0be518-6ea1-4d9f-a73d-2b19edd8dcf3">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_de20caa1-8053-41f7-bf6a-9cf7448e0a4d">
+          <dmn:text>"chili"
+</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="_41b9e492-72f0-422f-acd5-15c66698b7b6">
+        <dmn:inputEntry id="UnaryTests_1pm5eis">
+          <dmn:text>false</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="UnaryTests_177zape">
+          <dmn:text>false</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_9e13fad7-1c04-4dfd-9298-5dbc2c178ccc">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_7b4aaf7a-ed13-41d6-9d41-d50542a22e01">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_b631e9ca-02b0-4938-a9a9-3ea4bcab5e3c">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_18e5e5a2-17ac-4d8a-a5ac-e49c27063098">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_256cc4cb-eef2-4dcd-a684-664d46c1b7c3">
+          <dmn:text>false</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_f7b370ae-9ca7-477b-b303-a7ea1491be71">
+          <dmn:text>"clams"
+</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="_f37f6ad9-3177-46b7-829d-d32e35eaa92f">
+        <dmn:inputEntry id="UnaryTests_0z5bst0">
+          <dmn:text></dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="UnaryTests_0bn29yw">
+          <dmn:text></dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_74fc38d0-8946-4874-bcaf-07396d458288">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_42d8e9aa-b491-4076-8263-6e82f402de96">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_041a5ecd-51cf-4bbf-8a24-09dbae1ecd30">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_b65e679f-b2d0-4f38-b148-4f81f7b738d4">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_22045a3f-0026-4995-a09d-9d6c8cae9cf5">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_4be62d6c-9050-4c8c-affe-b71c91021423">
+          <dmn:text>"coffee"
+</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="_b5861419-68be-4134-a3f4-01190608eade">
+        <dmn:inputEntry id="UnaryTests_1lgss04">
+          <dmn:text></dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="UnaryTests_0umpwiw">
+          <dmn:text>false</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_c8b4eb80-1426-4cfd-aa79-a9d8b85eb12b">
+          <dmn:text>false</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_84c24353-a2ce-496d-bf6d-b7f1c0f55423">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_e9248e3f-2631-4ba5-af94-c40a3bc8841c">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_adba741e-5665-48e2-987d-7d79bb6e7c81">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_8ac5f1e7-2da2-4ad7-9604-3bfe83479b1a">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_6754d731-3072-4a13-aa39-7d425a192e6d">
+          <dmn:text>"cream"
+</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="_91de48dc-fb2d-4806-8db0-a0e8fa766d78">
+        <dmn:inputEntry id="UnaryTests_1q3p690">
+          <dmn:text></dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="UnaryTests_1qnqt8n">
+          <dmn:text></dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_55a68d4a-ae35-45f8-a8ce-6a85f0e54b4e">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_397fc203-5a46-4fdc-a5ad-46addb5ecf30">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_2822afc4-37a7-40ba-9b19-d0cb43b089fc">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_40e97efc-7fd0-470b-99ec-01e6f862929e">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_db071142-3b01-4f07-a765-18d63e39575f">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_b0fcfe8a-52c8-4666-8d30-5586d3923cdc">
+          <dmn:text>"dark_chocolate"
+</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="_25d5af69-7479-4e99-bb6f-30e772362620">
+        <dmn:inputEntry id="UnaryTests_0ghz8db">
+          <dmn:text>false</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="UnaryTests_0gakio1">
+          <dmn:text>false</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_c327275d-8d09-43a1-afa3-3c41ef04a9d7">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_69c0340b-f241-4039-baac-8be3201c76be">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_0f25c5ae-095b-4b46-bccf-a1780b6ad584">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_0b18997d-8248-4f60-8590-8274644649a8">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_3c948653-4cdb-47cb-8fc9-8dcfac1c3806">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_75c58b7a-c55b-427f-9e60-36f2b98845dc">
+          <dmn:text>"duck"
+</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="_f81a6b58-9d0d-4ec6-bbf2-572360e73b88">
+        <dmn:inputEntry id="UnaryTests_09um0e4">
+          <dmn:text></dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="UnaryTests_1so0874">
+          <dmn:text>false</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_06a366ee-c403-4354-8484-ac9c77dc33f4">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_656c6cc2-99b9-4f4d-92bb-729925ae5783">
+          <dmn:text>false</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_1e1ecfa1-6fac-4712-b8fe-43b97102af9a">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_846983b4-4ade-4222-b149-16431212b913">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_766c2e9d-90b4-4416-b61a-135c94bd6313">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_43c8ea57-a08d-44ee-8dc4-5d9bc2a1c227">
+          <dmn:text>"egg"
+</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="_1cfb006f-2b25-4e85-b8ec-2d28af653150">
+        <dmn:inputEntry id="UnaryTests_0fy0w8y">
+          <dmn:text></dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="UnaryTests_0ys7vf7">
+          <dmn:text></dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_a4846489-6ab0-40d3-855a-13b2bd7a68cd">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_fda64d19-1e55-4b93-a5a2-291e1e7fa0e7">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_46f7d6db-f1a0-4cf3-a1b3-24487b2bbaf7">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_acc01581-7d30-4c80-9573-9c878324c334">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_9d508f24-bb49-432f-a674-5f216cf505b9">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_afb9fa74-22bd-49e7-b08f-68a2b71295e7">
+          <dmn:text>"eggplant"
+</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="_c59492dd-0561-43a7-b470-429ffc751ddf">
+        <dmn:inputEntry id="UnaryTests_04xrv4n">
+          <dmn:text></dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="UnaryTests_1rx1kfz">
+          <dmn:text></dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_b8382212-db98-4fa6-914a-3c85cd56a751">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_0fff2f6f-7008-4c59-ab40-2cb62d2328d7">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_23e8212e-503e-4e8a-a4dc-40d3beb81331">
+          <dmn:text>false</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_eeecf869-f138-49ce-aa7d-1767659e462b">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_bde8bf2c-d745-4dd2-9ee1-9138bcb53dcb">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_661d0155-5241-45c7-96ea-36ae4de5cf11">
+          <dmn:text>"flour"
+</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="_30998bbe-1229-4d96-8d63-110396ae4b9f">
+        <dmn:inputEntry id="UnaryTests_0rzfyan">
+          <dmn:text></dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="UnaryTests_12l7b9d">
+          <dmn:text></dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_bd158839-7a72-43cf-aa44-a055b70471a4">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_be86d4d2-1c86-42ca-954b-5faa4c56b725">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_41eba0ac-85e9-488b-ac55-899153c26398">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_1e5e3340-caa9-4fe4-bdd6-ef1625d3bc9b">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_d0d6e1af-c785-430b-86f8-6e8811913211">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_b217b297-a3f7-4a72-983b-ba3531e7ddec">
+          <dmn:text>"garlic"
+</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="_0fc7fde0-244e-4282-91ed-a2c54205655a">
+        <dmn:inputEntry id="UnaryTests_0zwduf5">
+          <dmn:text>false</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="UnaryTests_0vqx831">
+          <dmn:text>false</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_e9a54e1a-8c6d-489f-a180-c203df472e41">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_8d9f1dd9-f759-4854-8632-d116bc034721">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_e40a3510-79fe-45c4-a50a-6740652c6bb5">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_b19d7c17-e9ef-4c60-8b40-c6d59c8ef865">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_58feb9ee-9ef3-49f7-9758-e73663d69f6f">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_30453ec8-8088-4ec2-ac3b-686c907e65da">
+          <dmn:text>"ham"
+</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="_34c0c806-5a36-4632-b0fb-02bbe373fa69">
+        <dmn:inputEntry id="UnaryTests_0wnvtpz">
+          <dmn:text></dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="UnaryTests_0m1txj3">
+          <dmn:text></dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_7a5262c3-fbec-4d9b-8d36-cc32f1e9ec6f">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_642c1058-833c-438e-a361-d99a3b11bc8d">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_6bf7180b-4236-49b3-a5b2-09036fc25060">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_885b0d67-8c7f-40d2-b7cb-2ee4be6d6ece">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_9c62f704-9ed6-42a7-9a48-57436508bf61">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_fe3621fd-40e2-483e-a381-f703ada6288e">
+          <dmn:text>"ice"
+</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="_0686df7b-2576-418f-af57-4f46500b8dcc">
+        <dmn:inputEntry id="UnaryTests_0tskqze">
+          <dmn:text></dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="UnaryTests_0i5mmtt">
+          <dmn:text>false</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_f39497b1-0470-44fb-bf20-994806038c96">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_b525f0f4-4c4c-4015-9983-762966099ae7">
+          <dmn:text>false</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_4d969a9b-4aff-48cf-95a6-a75c8b6ba9af">
+          <dmn:text>false</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_a6af7201-f6c4-4b73-8391-c0fb9db3b32d">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_f8a13329-ff4a-4011-900d-de824d9b6b76">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_73c24879-a683-4d98-9e0c-c37cd557c8ec">
+          <dmn:text>"ladyfinger"
+</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="_9bc19170-be30-42fa-a5bd-d57a22db059a">
+        <dmn:inputEntry id="UnaryTests_0k7k67w">
+          <dmn:text></dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="UnaryTests_0qljusw">
+          <dmn:text></dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_68973575-c48c-4ac0-8a34-fbdf8a04db8e">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_1683eb6b-5ced-400b-8ef9-6c02608bf650">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_f5bc5c69-18b7-4aac-bafc-0f02a7de802c">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_3888744e-f479-4749-9e9b-a3da568ed610">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_23128e11-3e74-4978-8e95-8f2b32e74013">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_c0f1f0e6-1aaf-41a4-a1f2-28c1c2ff5a42">
+          <dmn:text>"lemon"
+</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="_f4a76d1d-32ba-4b38-a622-bf2e5bc9b925">
+        <dmn:inputEntry id="UnaryTests_179lb8b">
+          <dmn:text></dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="UnaryTests_1s7o9zx">
+          <dmn:text>false</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_571a8b0d-dddf-46d1-b0f9-0182920c880b">
+          <dmn:text>false</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_baabc376-5b21-4245-aae2-9851ba68812f">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_9c2a5bc4-cde7-4650-b40a-e95fcac7cdc8">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_7e688bd7-47c6-4a0f-8cb6-0b4a56c7d973">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_f8362d07-3602-4919-b2d1-abb021347c82">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_cc44454e-456e-43c9-b9a5-815c1b8cd8e2">
+          <dmn:text>"mascarpone"
+</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="_d1b88074-1397-44a8-b464-034bfa3a8cfe">
+        <dmn:inputEntry id="UnaryTests_042flov">
+          <dmn:text></dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="UnaryTests_1p9lerj">
+          <dmn:text>false</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_a5492a22-5d39-40ec-92bc-d60d835c1f91">
+          <dmn:text>false</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_0fafa20a-8c31-4952-b4b7-3ae05ce36034">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_18a27361-f843-4bcf-8ee2-32e3628342e0">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_f08feee2-730d-4d87-99fa-9df8cc48b893">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_8e29dc9e-fffd-4439-8520-8f6177e22677">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_d9cc6390-2367-4040-bd27-47f4d0609767">
+          <dmn:text>"milk"
+</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="_5e2c87c1-5d19-4bda-8d8f-2b6778768757">
+        <dmn:inputEntry id="UnaryTests_0yara25">
+          <dmn:text></dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="UnaryTests_0kk8gp0">
+          <dmn:text>false</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_4dcfe653-0cd4-4c1c-a66f-ff9d5c0682f7">
+          <dmn:text>false</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_aff5149d-6c91-4a0a-b8bc-749ebb2fd2ca">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_08fe9b52-ceaa-43d9-b25c-954f8a78535d">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_a2ea9af4-b10d-40b3-bd96-bca0a395c5ea">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_ebf68c16-12bc-4831-9ba2-9aa7712765af">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_9166e9d3-3615-4401-a99f-71adacf7f0c3">
+          <dmn:text>"mozzarella"
+</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="_956fb70b-e0d4-4811-b76d-19bd4da6e31a">
+        <dmn:inputEntry id="UnaryTests_04dw9ft">
+          <dmn:text></dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="UnaryTests_0b146fx">
+          <dmn:text></dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_10310c45-3cb9-48b3-8ee6-f17f955815bc">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_1dd49f20-90e4-4bda-96ff-e82284ecd3a0">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_24edc104-edb0-405a-9aed-f90ae102bab4">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_78ef050c-9b14-4c32-a617-60731378a05d">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_1f6d9f72-1bfe-4be4-a23d-4f12e8351726">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_a33c8f8d-cf45-4652-b8f5-323512fd783c">
+          <dmn:text>"orange"
+</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="_714da685-44ee-46a4-8a91-634785a0f0bd">
+        <dmn:inputEntry id="UnaryTests_1wlykyp">
+          <dmn:text></dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="UnaryTests_1tt2ulh">
+          <dmn:text></dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_5bcf111c-55ff-41cb-bee9-cacb677cc7be">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_3c3842b8-a085-4613-9aed-dce975da5794">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_ae18b948-8809-44b4-9292-3f7439d19e73">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_48d028ac-009f-4b3f-a291-c10158b8ea31">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_89b550ed-aba0-4008-9e95-724a27006a77">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_89ffc64e-e6ce-4d02-a4f5-da8540edbf3e">
+          <dmn:text>"oil"
+</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="_97a83a73-ac1b-48c9-b7e8-98c37a009b05">
+        <dmn:inputEntry id="UnaryTests_14j7mip">
+          <dmn:text></dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="UnaryTests_0dl34n4">
+          <dmn:text></dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_7d8a5d48-6520-44b2-8a33-8e3cc927413b">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_6f82a6d9-9f2d-485b-b64a-5dee75f107df">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_3ebd57ba-22d4-4a62-8882-126686a55dd3">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_36bcefc2-585d-4e9c-b000-5068de18a21a">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_252c0c8e-549e-4fff-bf81-ac6700275cc6">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_0e533e43-86d7-4360-ab55-1b62b5313e78">
+          <dmn:text>"onion"
+</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="_e5004dab-9581-430f-afbc-7c297060b944">
+        <dmn:inputEntry id="UnaryTests_17bd8aj">
+          <dmn:text></dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="UnaryTests_1f1owwv">
+          <dmn:text>false</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_c4b4eb3e-5d79-4d11-ba6c-4e031064485a">
+          <dmn:text>false</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_a11f5ad2-e32c-44da-b859-fd8263b24e7e">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_f9e67d72-da79-4c32-8778-e3186776f564">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_6404e48c-3aa5-4ca4-b9a0-52a93b115168">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_e4168313-5e47-481c-8f57-b3a340588f42">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_5720b350-5659-42a0-9065-9d264ae01024">
+          <dmn:text>"parmesan"
+</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="_8052a287-0edd-4cc5-ab54-d1cd25dfd593">
+        <dmn:inputEntry id="UnaryTests_0d78tap">
+          <dmn:text></dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="UnaryTests_1q6f69n">
+          <dmn:text></dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_02dc89b4-007e-4501-a529-8d524b0ca198">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_b29c9931-27bf-42a0-b2b2-3e7be7e1f9f1">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_2f5c0133-f1c4-4a06-979a-aedad4bb1b9a">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_a881bea7-7a38-432f-8443-7bfa4f1d12d5">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_69d3414a-9189-4f51-be76-12d972a2d5d4">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_d0f991c1-11a5-4281-bb00-00fd26f07304">
+          <dmn:text>"parsley"
+</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="_4f200a07-18a9-4c30-b8e6-4e87d99d014e">
+        <dmn:inputEntry id="UnaryTests_1l38xqa">
+          <dmn:text></dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="UnaryTests_1rk45gq">
+          <dmn:text></dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_9912617d-f071-4d64-9fc6-485bcbc534e5">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_08e4c7c8-6dbb-4216-8605-69c596ae78f6">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_a18a3a66-2be1-46ea-ab94-930b52ee44a0">
+          <dmn:text>true</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_65a9492a-731c-428e-b815-fbc269b3abd9">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_7e7373cf-fe7f-40ff-ad75-218a2f6ef639">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_9e2e1523-28b8-40a5-a886-f8e5631bd328">
+          <dmn:text>"pasta"
+</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="_1ebd3e4e-4cb5-4990-9ac0-cd18c69a6e35">
+        <dmn:inputEntry id="UnaryTests_0o1x92u">
+          <dmn:text></dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="UnaryTests_12nei9f">
+          <dmn:text></dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_483d6b3c-2525-4ba4-8f6e-948cee69a6c3">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_f0674726-5bdd-429c-9efd-68ca4894b9c9">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_d9839e24-928a-4af0-8ae8-09dde1e5a5df">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_71c64ca4-176a-476f-8c14-fbde74cf1a7b">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_6f092ddb-589c-4f55-94d8-2ef7e73fce0c">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_ae6b4f2e-8d15-43c8-82d5-58b0c4b07273">
+          <dmn:text>"peach"
+</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="_cebde621-0f47-47eb-bf11-4a717b05fdd4">
+        <dmn:inputEntry id="UnaryTests_06fe69y">
+          <dmn:text></dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="UnaryTests_0cgr4ly">
+          <dmn:text>false</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_081ca8b7-c1c8-47b9-aea4-0a8f3a7ee223">
+          <dmn:text>false</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_55542395-22b1-4cf8-92d0-259d710d9d6f">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_4d518fe3-3ab8-4cc8-93eb-140626fe9ec7">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_133eb69d-4adc-4dae-9fdd-fb57c758ce8f">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_3f21e050-3c86-4967-a142-13764e9cd7b1">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_bac364c0-5328-4824-a693-82474ae60113">
+          <dmn:text>"pecorino"
+</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="_4acc9815-b2c0-4965-a777-85f1c02732c6">
+        <dmn:inputEntry id="UnaryTests_1ss7jhl">
+          <dmn:text></dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="UnaryTests_1mathfz">
+          <dmn:text></dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_d00a5daf-2de5-4738-a1cd-7d779218759c">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_7d82a4a3-2b16-4df9-be8f-307c0cb372a1">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_1cafa30d-36d9-44c5-8bc7-4e147a94055d">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_363bf3a7-e445-41d7-9434-d2695cd7a35b">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_f0bd6002-0919-49ad-a76e-d4b31cf12df0">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_0144938b-9910-483d-b473-eeb488fc488a">
+          <dmn:text>"peas"
+</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="_a5244940-f3b3-45ab-ad2a-8dd3f8596d48">
+        <dmn:inputEntry id="UnaryTests_16xdnrg">
+          <dmn:text></dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="UnaryTests_1w3j66j">
+          <dmn:text></dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_34f87b77-2bd5-4fe5-a737-7d9190837de8">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_71b6e44e-5612-4d3b-aed9-449cab84bb12">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_39b05115-00fe-4b82-8ab2-5b1e37eeb131">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_a1f1e642-7294-4ceb-9c85-46f769feb5c1">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_ad0e615a-d29f-4d89-97e2-f8fed0bd1002">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_d41334c4-67da-40b8-b66e-1d43936dcc4c">
+          <dmn:text>"potato"
+</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="_41078056-e993-4ff5-bd9b-f5ac97054f4e">
+        <dmn:inputEntry id="UnaryTests_1h1d59g">
+          <dmn:text></dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="UnaryTests_0fwarkg">
+          <dmn:text></dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_675c020b-7ebb-4712-8384-cba274dfdbf0">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_147b6ddb-cb87-4fba-b599-46bada73332a">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_dcea2187-7753-45c3-a93c-5f6e2f6e6c52">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_a808b53b-c130-4f69-bfa9-d9162ebcd098">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_e210e212-1142-4080-bd60-53733bb60fe4">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_62f530b8-f0ee-45e0-b250-45e528877828">
+          <dmn:text>"rice"
+</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="_8954318e-a626-4f58-bfbc-3eac5b509391">
+        <dmn:inputEntry id="UnaryTests_12c0ts1">
+          <dmn:text></dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="UnaryTests_1ya1ybx">
+          <dmn:text>false</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_4bdfe3bc-3fd7-4558-a4b0-8b6b108cce1e">
+          <dmn:text>false</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_c584b253-bcfa-4c0b-a5c3-aff1ae74045c">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_34aa258b-adc5-4b2a-83a7-e3da3c1ff9c9">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_2f52131f-ea13-4867-bd05-a8a9b7fb14d6">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_fb4b616b-cb0d-46b8-abf4-c8228ca2eb30">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_177d619c-0d53-42e8-ac9f-bb1ec93f912a">
+          <dmn:text>"ricotta"
+</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="_98ffd6c8-a905-476c-9f4c-3761c3dffb40">
+        <dmn:inputEntry id="UnaryTests_1kp95sx">
+          <dmn:text></dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="UnaryTests_0s9kke8">
+          <dmn:text></dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_8ef497e8-aea5-47ff-acd7-0b6a6bc24a7b">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_bc683e60-16f6-4a2f-b358-d48fba65f2df">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_91e45806-322e-4f1a-82e8-83f5c80ac1e1">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_2d04340d-c744-4917-9976-9eb0f45e4915">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_327a3d1d-3dde-46b6-b4d7-8aa55b0c5483">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_d0a4ab4d-29f7-4f29-8da1-cd97f89eb02b">
+          <dmn:text>"rosemary"
+</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="_770b2af7-6558-40ee-b9e9-ee018adac0a6">
+        <dmn:inputEntry id="UnaryTests_1k2uv33">
+          <dmn:text>false</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="UnaryTests_06gpkya">
+          <dmn:text>false</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_59655913-c1e1-4b32-9955-7b92f81b174e">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_a2d12264-d05b-41fe-948a-eba3dba13e8c">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_f0291411-5593-4b49-a30a-b9d6359ca3d6">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_121e1ddf-e58d-4612-b585-cdd7296499db">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_e26f1477-f3fb-4ae5-be59-d622f1e0c521">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_60549e54-18fa-48f2-b673-3af8aeb71556">
+          <dmn:text>"salmon"
+</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="_b45ff1d0-50df-40da-84b3-379ab21f7c76">
+        <dmn:inputEntry id="UnaryTests_0gw5map">
+          <dmn:text></dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="UnaryTests_0ytyz0y">
+          <dmn:text></dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_f2851299-f261-4b89-8c9f-f745de5900b8">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_a305797b-ab8b-4e26-a41b-29305534e441">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_f8b955b6-3836-47c8-b333-fb5baf4043ed">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_384731a6-186e-41ae-9bba-edfcddbb27a9">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_7718e7bf-8419-43f6-b2ca-7ef41168dd8d">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_9d5bc693-c9e1-4254-ac3f-7278c4d8de98">
+          <dmn:text>"salt"
+</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="_7ab6f568-e6aa-471b-b05e-2426b2fefaf7">
+        <dmn:inputEntry id="UnaryTests_1d2zgnf">
+          <dmn:text>false</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="UnaryTests_0saom6l">
+          <dmn:text>false</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_6510efd4-1690-4a69-a03f-532de1312690">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_62ded92a-0e27-4102-8834-a883677fc403">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_dd3bdadb-a1fb-4913-a837-413b259b6c56">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_39efbca7-4a32-47f6-a018-0fcfec3adaa3">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_96bb5ba6-8acd-4c01-945e-b87a970fc4a0">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_20baf405-9791-4017-879e-3c56f7fa7e26">
+          <dmn:text>"sausage"
+</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="_2be0b24a-5177-4f59-b030-442cd703426d">
+        <dmn:inputEntry id="UnaryTests_0u9n5k0">
+          <dmn:text>false</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="UnaryTests_09mejje">
+          <dmn:text>false</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_744c6286-f7f6-4044-a7e3-b174dc301597">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_5e9bd06a-5adc-483b-af2f-971efa081e1f">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_c073cd64-4a57-4416-b9c4-193e28daefaa">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_34de5908-d3b6-4131-a5b3-10087248ee2e">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_d8b8962e-43ba-4116-9efd-71890aacda58">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_f764af5d-6d00-458f-ae6b-f180c198c641">
+          <dmn:text>"seabass"
+</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="_ddcdac3a-117f-489e-83e9-ae7c58958eea">
+        <dmn:inputEntry id="UnaryTests_136y8v8">
+          <dmn:text></dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="UnaryTests_1g60l4o">
+          <dmn:text></dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_2e137d2d-ca4f-4f8c-8d97-a92988bd52c3">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_7c57f932-dc35-4269-ab8c-c882bc778fc2">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_8e99a61d-6237-4b7c-815f-8560859620fd">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_0e38e803-8099-49a1-ae7c-72b4f5ba9baf">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_e6df7bb2-4ca6-4483-9d8d-fd935826246d">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_ce81c195-1b77-4a87-bbf4-cfb1f02480f5">
+          <dmn:text>"sparkling_water"
+</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="_b9e38bf6-b0b9-4b0f-b79e-bce4fd66f690">
+        <dmn:inputEntry id="UnaryTests_0s56new">
+          <dmn:text></dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="UnaryTests_0bur7rl">
+          <dmn:text></dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_6638bfa0-9372-4694-bbee-296d24942595">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_078b277e-54a5-4157-bf52-24cd1e2d6486">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_d49891ae-3a8d-4c70-8106-f6d4776c36c5">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_962cc9bc-f6b3-4a6e-ab3c-ce0d4a49817f">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_ab472607-3bfa-477b-ba3b-84420a3fe2b1">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_d327359d-016d-448f-afb5-06419b27df66">
+          <dmn:text>"strawberry"
+</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="_746db8c7-3ede-4a48-8e59-98aaa812f73a">
+        <dmn:inputEntry id="UnaryTests_0diu8sw">
+          <dmn:text></dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="UnaryTests_14oj8rv">
+          <dmn:text></dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_0b806f7d-c6c5-44c4-af38-90329cb3d040">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_b167b014-cf3f-4e24-84fb-514c9c75affa">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_de868c54-f31e-44ce-bea6-ab45be6b874b">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_ebea39cd-bffc-4574-a7bf-f14beb79daab">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_fbe26118-e9bc-4f09-8579-2d7bfb08ac33">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_c97251d5-16ab-44b7-b6ce-632e3cdd22fa">
+          <dmn:text>"sugar"
+</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="_978dae5b-03c1-4efe-b1f8-1786c1f316df">
+        <dmn:inputEntry id="UnaryTests_0t2s99l">
+          <dmn:text></dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="UnaryTests_0tc4l80">
+          <dmn:text></dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_4aca5979-7bb8-4e73-8e52-8a8533c033e0">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_53580d0f-a5f8-46cb-b40d-1f72abea8411">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_57464665-29e1-4041-9159-a1357f0a5270">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_740a30f6-657d-49aa-b9be-fe4fd6c3b2b9">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_aa35f855-6342-4a54-9ee2-a54f2d5a6ed8">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_763ff4a6-6bf8-43fe-8c9e-48c2487d36bb">
+          <dmn:text>"tomato_sauce"
+</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="_886e273e-0dda-4da0-a7bb-02081829217d">
+        <dmn:inputEntry id="UnaryTests_0nwhfer">
+          <dmn:text></dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="UnaryTests_15npj4l">
+          <dmn:text></dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_cd0700c1-49bc-47c8-9898-b6b94e35b046">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_390ba3e9-45db-4cfb-a97a-706260c81d14">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_68e15597-23dd-47d6-9789-fba08b95ebc0">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_26af765c-2ee8-4feb-96f6-5569768c8d6f">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_0565ada8-f4bd-4900-8ef9-2718782b0ab2">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_dceb2da4-3469-45d5-a0a5-c58d70b53618">
+          <dmn:text>"truffle"
+</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="_97197481-14ed-44c1-89de-3df9fad9b337">
+        <dmn:inputEntry id="UnaryTests_0svxc9s">
+          <dmn:text></dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="UnaryTests_0lyqi8z">
+          <dmn:text></dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_aeb57287-7a49-44fc-88ea-faafabede875">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_a2c5bf9a-fa33-4eea-af38-ee4d3e4dc0dc">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_00dcb423-5f23-47a3-a355-6144022aaf83">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_7fdce48b-e99a-403b-b5c3-268c35913c28">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_1ce4673d-c7e8-4720-8664-1ed81a0e3453">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_55a715ac-4af0-4669-ad90-f3c96959e8c3">
+          <dmn:text>"water"
+</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="_d80cdb01-1384-4868-b8a8-3309a2eaf6b5">
+        <dmn:inputEntry id="UnaryTests_090ikxl">
+          <dmn:text></dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="UnaryTests_0smvpug">
+          <dmn:text></dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_8c22bc89-6403-4093-b0b3-6b615b46a06e">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_df7cce6b-3e78-425a-8e27-18b038a4d81e">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_e7ad2f5f-6de9-4ef0-ad94-8731321827ff">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_fd7471af-a67e-496f-937d-c5104f773763">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_722ef06e-0083-4aa1-9763-707ce1b5e6a1">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_98342536-bd15-442f-99df-689f2d24193c">
+          <dmn:text>"zucchini"
+</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+    </dmn:decisionTable>
+  </dmn:decision>
+  <dmn:knowledgeSource id="_18232357-69fc-40d2-8f48-1763c79cd313" name="Ingredients" triso:readOnly="false" />
+  <dmn:inputData id="_00498063-56d6-428d-b2b3-5665e642902e" name="Guest Diet" triso:readOnly="false">
+    <dmn:variable id="_41223c56-f28b-4949-ad29-87b8e4e7cfe9" name="Guest Diet" typeRef="guestDietType2" />
+  </dmn:inputData>
+  <dmn:inputData id="_54bfb8e9-30df-4803-8010-3b52064b494b" name="Guest Allergies" triso:readOnly="false">
+    <dmn:variable id="_abda66c7-ac64-4925-8df1-de222db4b227" name="Guest Allergies" typeRef="guestAllergiesType2" />
+  </dmn:inputData>
+  <dmn:decision id="mealsTable" name="Meals List">
+    <dmn:informationRequirement id="InformationRequirement_08kg6on">
+      <dmn:requiredDecision href="#ingredients_info" />
+    </dmn:informationRequirement>
+    <dmn:informationRequirement id="InformationRequirement_03uhan4">
+      <dmn:requiredInput href="#isCaloriesConcious" />
+    </dmn:informationRequirement>
+    <dmn:authorityRequirement id="AuthorityRequirement_0rbqfql">
+      <dmn:requiredAuthority href="#mealsFile" />
+    </dmn:authorityRequirement>
+    <dmn:decisionTable id="DecisionTable_1tjumm1" hitPolicy="COLLECT">
+      <dmn:input id="InputClause_07muijo" label="Ingredients" biodi:width="438">
+        <dmn:inputExpression id="LiteralExpression_18bokv9" typeRef="list">
+          <dmn:text>ingredients_info</dmn:text>
+        </dmn:inputExpression>
+      </dmn:input>
+      <dmn:input id="InputClause_0es217m" label="Is Calories Conscious">
+        <dmn:inputExpression id="LiteralExpression_19dq6ib" typeRef="boolean">
+          <dmn:text>isCaloriesConcious</dmn:text>
+        </dmn:inputExpression>
+      </dmn:input>
+      <dmn:output id="OutputClause_0u265qk" label="Meals" name="meals" typeRef="string" />
+      <dmn:rule id="DecisionRule_10aye2t">
+        <dmn:inputEntry id="UnaryTests_1bmq281">
+          <dmn:text>list contains(ingredients, "water")</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="UnaryTests_1qsit4b">
+          <dmn:text></dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="LiteralExpression_0rqogz1">
+          <dmn:text>"Water"</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="DecisionRule_1aqvrml">
+        <dmn:inputEntry id="UnaryTests_1ejeod7">
+          <dmn:text>list contains(ingredients, "sugar") and list contains(ingredients, "milk")and list contains(ingredients, "coffee")</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="UnaryTests_0qhkvj4">
+          <dmn:text></dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="LiteralExpression_0765kr9">
+          <dmn:text>Coffee</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="DecisionRule_1pxriv8">
+        <dmn:inputEntry id="UnaryTests_1j9aa81">
+          <dmn:text>list contains(ingredients, "sparkling_water") and list contains(ingredients, "lemon")and list contains(ingredients, "sugar")</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="UnaryTests_04x258v">
+          <dmn:text></dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="LiteralExpression_1wvneiq">
+          <dmn:text>"Sparkling Lemonade"</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="DecisionRule_19y12ur">
+        <dmn:inputEntry id="UnaryTests_0zb9085">
+          <dmn:text>list contains(ingredients, "peach") and list contains(ingredients, "water")and list contains(ingredients, "sugar")and list contains(ingredients, "ice")</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="UnaryTests_0b19dgs">
+          <dmn:text></dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="LiteralExpression_0nzvlv3">
+          <dmn:text>"Peach Smoothie"</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="DecisionRule_0qrgvft">
+        <dmn:inputEntry id="UnaryTests_0x5l136">
+          <dmn:text>list contains(ingredients, "almonds") and list contains(ingredients, "water")and list contains(ingredients, "sugar")</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="UnaryTests_0gbb577">
+          <dmn:text></dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="LiteralExpression_1xgouby">
+          <dmn:text>"Almond Milk Drink"</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="DecisionRule_1u7jqf6">
+        <dmn:inputEntry id="UnaryTests_124r0qd">
+          <dmn:text>list contains(ingredients, "coffee") and list contains(ingredients, "ice")and list contains(ingredients, "sugar")and list contains(ingredients, "milk")</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="UnaryTests_1xril0z">
+          <dmn:text></dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="LiteralExpression_0v1avo8">
+          <dmn:text>"Iced Coffee"</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="DecisionRule_0b2aib5">
+        <dmn:inputEntry id="UnaryTests_0ewi8ok">
+          <dmn:text>list contains(ingredients, "pasta") and list contains(ingredients, "egg")and list contains(ingredients, "bacon")and list contains(ingredients, "parmesan")and list contains(ingredients, "black_pepper")</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="UnaryTests_13mropj">
+          <dmn:text>false</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="LiteralExpression_0qwmjhi">
+          <dmn:text>"Spaghetti alla Carbonara"</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="DecisionRule_197gndt">
+        <dmn:inputEntry id="UnaryTests_0r0scbk">
+          <dmn:text>list contains(ingredients, "pasta") and list contains(ingredients, "oil")and list contains(ingredients, "almonds")and list contains(ingredients, "parmesan")and list contains(ingredients, "garlic")</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="UnaryTests_1vc1wq2">
+          <dmn:text>false</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="LiteralExpression_1x734b1">
+          <dmn:text>"Pasta al Pesto"</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="DecisionRule_11dj2zw">
+        <dmn:inputEntry id="UnaryTests_1r1yim2">
+          <dmn:text>list contains(ingredients, "rice") and list contains(ingredients, "champignon")and list contains(ingredients, "oil")and list contains(ingredients, "onion")</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="UnaryTests_05dbtp0">
+          <dmn:text></dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="LiteralExpression_0529hdq">
+          <dmn:text>"Risotto ai Funghi"</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="DecisionRule_02ge2wd">
+        <dmn:inputEntry id="UnaryTests_0alfc5r">
+          <dmn:text>list contains(ingredients, "pasta") and list contains(ingredients, "tomato_sauce")and list contains(ingredients, "garlic")and list contains(ingredients, "oil")and list contains(ingredients, "basil")</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="UnaryTests_1e8bmet">
+          <dmn:text></dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="LiteralExpression_1ce1nmi">
+          <dmn:text>"Pasta al Pomodoro"</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="DecisionRule_1im7n1r">
+        <dmn:inputEntry id="UnaryTests_07pqppm">
+          <dmn:text>list contains(ingredients, "pasta") and list contains(ingredients, "tomato_sauce")and list contains(ingredients, "chili")and list contains(ingredients, "oil")and list contains(ingredients, "garlic")</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="UnaryTests_0oivjka">
+          <dmn:text></dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="LiteralExpression_0b8uo0v">
+          <dmn:text>"Penne all’Arrabbiata"</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="DecisionRule_1ilbsqa">
+        <dmn:inputEntry id="UnaryTests_1tzeejl">
+          <dmn:text>list contains(ingredients, "pasta") and list contains(ingredients, "salmon")and list contains(ingredients, "cream")and list contains(ingredients, "lemon")and list contains(ingredients, "peas")</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="UnaryTests_04e7ks4">
+          <dmn:text>false</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="LiteralExpression_0ayyi9v">
+          <dmn:text>"Pasta al Salmone"</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="DecisionRule_12nglb0">
+        <dmn:inputEntry id="UnaryTests_0nbe750">
+          <dmn:text>list contains(ingredients, "pasta") and list contains(ingredients, "ricotta")and list contains(ingredients, "tomato_sauce")and list contains(ingredients, "oil")and list contains(ingredients, "parmesan")</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="UnaryTests_0w7wnl4">
+          <dmn:text>false</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="LiteralExpression_08hvvgn">
+          <dmn:text>"Ravioli di Ricotta"</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="DecisionRule_05v5knd">
+        <dmn:inputEntry id="UnaryTests_02d2jyb">
+          <dmn:text>list contains(ingredients, "pasta") and list contains(ingredients, "beef")and list contains(ingredients, "tomato_sauce")and list contains(ingredients, "carrot")and list contains(ingredients, "onion")</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="UnaryTests_1mzoc87">
+          <dmn:text>false</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="LiteralExpression_1856m1q">
+          <dmn:text>"Pasta alla Bolognese"</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="DecisionRule_1jmyzzn">
+        <dmn:inputEntry id="UnaryTests_1hvfof1">
+          <dmn:text>list contains(ingredients, "pasta") and list contains(ingredients, "truffle")and list contains(ingredients, "oil")</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="UnaryTests_05vi49n">
+          <dmn:text></dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="LiteralExpression_1cqm64r">
+          <dmn:text>"Pasta al Tartufo"</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="DecisionRule_03qnqcc">
+        <dmn:inputEntry id="UnaryTests_1m4lolu">
+          <dmn:text>list contains(ingredients, "potato") and list contains(ingredients, "flour")and list contains(ingredients, "egg")and list contains(ingredients, "butter")</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="UnaryTests_1hz4uom">
+          <dmn:text>false</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="LiteralExpression_1u6kh79">
+          <dmn:text>"Gnocchi di Patate"</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="DecisionRule_1cy49k0">
+        <dmn:inputEntry id="UnaryTests_1d8pmvd">
+          <dmn:text>list contains(ingredients, "salmon") and list contains(ingredients, "lemon")and list contains(ingredients, "oil")and list contains(ingredients, "salt")and list contains(ingredients, "rosemary")</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="UnaryTests_0a83ghx">
+          <dmn:text></dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="LiteralExpression_139k5ms">
+          <dmn:text>"Grilled Salmon"</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="DecisionRule_1g44s23">
+        <dmn:inputEntry id="UnaryTests_1m5s1wz">
+          <dmn:text>list contains(ingredients, "duck") and list contains(ingredients, "rosemary")and list contains(ingredients, "oil")and list contains(ingredients, "salt")</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="UnaryTests_0xjik6i">
+          <dmn:text>false</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="LiteralExpression_16d6nvr">
+          <dmn:text>"Roast Duck"</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="DecisionRule_01ugp7n">
+        <dmn:inputEntry id="UnaryTests_0dpc0jx">
+          <dmn:text>list contains(ingredients, "beef") and list contains(ingredients, "carrot")and list contains(ingredients, "onion")and list contains(ingredients, "potato")and list contains(ingredients, "oil")and list contains(ingredients, "salt")</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="UnaryTests_03qnknx">
+          <dmn:text>false</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="LiteralExpression_0v512a5">
+          <dmn:text>"Beef Steak with Veggies"</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="DecisionRule_1bss0cq">
+        <dmn:inputEntry id="UnaryTests_0vytj5n">
+          <dmn:text>list contains(ingredients, "chicken") and list contains(ingredients, "rice")and list contains(ingredients, "peas")and list contains(ingredients, "oil")and list contains(ingredients, "salt")</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="UnaryTests_17qdy9d">
+          <dmn:text></dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="LiteralExpression_16m4c9h">
+          <dmn:text>"Chicken with Rice"</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="DecisionRule_07hq1dy">
+        <dmn:inputEntry id="UnaryTests_0z2blym">
+          <dmn:text>list contains(ingredients, "seabass") and list contains(ingredients, "lemon")and list contains(ingredients, "oil")and list contains(ingredients, "salt")and list contains(ingredients, "rosemary")</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="UnaryTests_11q6npz">
+          <dmn:text></dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="LiteralExpression_0qj40mm">
+          <dmn:text>"Baked Sea Bass"</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="DecisionRule_0sb3fmz">
+        <dmn:inputEntry id="UnaryTests_15veykm">
+          <dmn:text>list contains(ingredients, "sausage") and list contains(ingredients, "peas")and list contains(ingredients, "onion")and list contains(ingredients, "oil")and list contains(ingredients, "salt")</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="UnaryTests_0e3hmia">
+          <dmn:text></dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="LiteralExpression_17g876g">
+          <dmn:text>"Sausage with Peas"</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="DecisionRule_1omtmps">
+        <dmn:inputEntry id="UnaryTests_0ueuyf6">
+          <dmn:text>list contains(ingredients, "chicken") and list contains(ingredients, "bacon")and list contains(ingredients, "rosemary")and list contains(ingredients, "oil")and list contains(ingredients, "salt")</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="UnaryTests_1eynuvi">
+          <dmn:text>false</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="LiteralExpression_0u6uakk">
+          <dmn:text>"Bacon-Wrapped Chicken"</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="DecisionRule_1wpmekg">
+        <dmn:inputEntry id="UnaryTests_1fwqa95">
+          <dmn:text>list contains(ingredients, "duck") and list contains(ingredients, "orange")and list contains(ingredients, "sugar")and list contains(ingredients, "oil")</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="UnaryTests_0qmon5x">
+          <dmn:text>false</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="LiteralExpression_00e48es">
+          <dmn:text>"Duck with Orange Sauce"</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="DecisionRule_0pq0iyg">
+        <dmn:inputEntry id="UnaryTests_1l434o3">
+          <dmn:text>list contains(ingredients, "clams") and list contains(ingredients, "garlic")and list contains(ingredients, "oil")and list contains(ingredients, "lemon")and list contains(ingredients, "parsley")</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="UnaryTests_1rxb49s">
+          <dmn:text></dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="LiteralExpression_0k4hx78">
+          <dmn:text>"Grilled Clams"</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="DecisionRule_1tug5wz">
+        <dmn:inputEntry id="UnaryTests_0neajlc">
+          <dmn:text>list contains(ingredients, "eggplant") and list contains(ingredients, "ricotta")and list contains(ingredients, "tomato_sauce")and list contains(ingredients, "mozzarella")and list contains(ingredients, "oil")</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="UnaryTests_0aedyme">
+          <dmn:text></dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="LiteralExpression_1i4awdl">
+          <dmn:text>"Eggplant Stuffed"</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="DecisionRule_09u05jq">
+        <dmn:inputEntry id="UnaryTests_1iyvshs">
+          <dmn:text>list contains(ingredients, "flour") and list contains(ingredients, "tomato_sauce")and list contains(ingredients, "mozzarella")and list contains(ingredients, "oil")and list contains(ingredients, "basil")</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="UnaryTests_0e18xq4">
+          <dmn:text>false</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="LiteralExpression_02g22d5">
+          <dmn:text>"Margherita Pizza"</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="DecisionRule_0yj01h8">
+        <dmn:inputEntry id="UnaryTests_0lx5k99">
+          <dmn:text>list contains(ingredients, "flour") and list contains(ingredients, "tomato_sauce")and list contains(ingredients, "mozzarella")and list contains(ingredients, "oil")and list contains(ingredients, "sausage")</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="UnaryTests_1ona1lb">
+          <dmn:text>false</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="LiteralExpression_1pbo81m">
+          <dmn:text>"Pepperoni Pizza"</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="DecisionRule_0ew80kn">
+        <dmn:inputEntry id="UnaryTests_1rfl9ex">
+          <dmn:text>list contains(ingredients, "flour") and list contains(ingredients, "tomato_sauce")and list contains(ingredients, "mozzarella")and list contains(ingredients, "oil")and list contains(ingredients, "ham") and list contains(ingredients, "champignon")</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="UnaryTests_1jb9e5e">
+          <dmn:text>false</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="LiteralExpression_0iehz1v">
+          <dmn:text>"Ham &amp; Mushroom Pizza"</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="DecisionRule_186yzph">
+        <dmn:inputEntry id="UnaryTests_0bteabm">
+          <dmn:text>list contains(ingredients, "flour") and list contains(ingredients, "tomato_sauce")and list contains(ingredients, "mozzarella")and list contains(ingredients, "oil")and list contains(ingredients, "eggplant")</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="UnaryTests_18cortr">
+          <dmn:text>false</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="LiteralExpression_0ihb219">
+          <dmn:text>"Eggplant Pizza"</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="DecisionRule_1u4u48k">
+        <dmn:inputEntry id="UnaryTests_1q2cz1m">
+          <dmn:text>list contains(ingredients, "flour")and list contains(ingredients, "mozzarella")and list contains(ingredients, "oil")and list contains(ingredients, "truffle")</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="UnaryTests_0ppauhl">
+          <dmn:text>false</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="LiteralExpression_0q5rrc1">
+          <dmn:text>"Truffle Pizza"</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="DecisionRule_0igjp0i">
+        <dmn:inputEntry id="UnaryTests_1akiu73">
+          <dmn:text>list contains(ingredients, "flour") and list contains(ingredients, "tomato_sauce")and list contains(ingredients, "mozzarella")and list contains(ingredients, "oil")and list contains(ingredients, "salmon")</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="UnaryTests_0os8b8d">
+          <dmn:text>false</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="LiteralExpression_06rccso">
+          <dmn:text>"Salmon Pizza"</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="DecisionRule_1io2ue1">
+        <dmn:inputEntry id="UnaryTests_1p4dy53">
+          <dmn:text>list contains(ingredients, "flour") and list contains(ingredients, "parmesan")and list contains(ingredients, "mozzarella")and list contains(ingredients, "pecorino")and list contains(ingredients, "mascarpone")</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="UnaryTests_0a3grjo">
+          <dmn:text>false</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="LiteralExpression_1ssfj67">
+          <dmn:text>"Four Cheese Pizza"</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="DecisionRule_0ff0rte">
+        <dmn:inputEntry id="UnaryTests_1sivtvx">
+          <dmn:text>list contains(ingredients, "flour") and list contains(ingredients, "tomato_sauce")and list contains(ingredients, "mozzarella")and list contains(ingredients, "bacon")and list contains(ingredients, "onion")and list contains(ingredients, "oil")</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="UnaryTests_1rx3z2o">
+          <dmn:text>false</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="LiteralExpression_18bp9el">
+          <dmn:text>"Bacon &amp; Onion Pizza"</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="DecisionRule_0dp6ezb">
+        <dmn:inputEntry id="UnaryTests_09bv2hy">
+          <dmn:text>list contains(ingredients, "flour") and list contains(ingredients, "tomato_sauce")and list contains(ingredients, "carrot")and list contains(ingredients, "zucchini")and list contains(ingredients, "salmon")</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="UnaryTests_1f6cptw">
+          <dmn:text>false</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="LiteralExpression_080hbvf">
+          <dmn:text>"Vegan Pizza"</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="DecisionRule_1pe39b2">
+        <dmn:inputEntry id="UnaryTests_19chgtn">
+          <dmn:text>list contains(ingredients, "flour") and list contains(ingredients, "peach")and list contains(ingredients, "mozzarella")and list contains(ingredients, "almonds")and list contains(ingredients, "sugar")and list contains(ingredients, "oil")</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="UnaryTests_0w0nsbg">
+          <dmn:text>false</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="LiteralExpression_0s38une">
+          <dmn:text>"Peach &amp; Almond Pizza"</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="DecisionRule_1tcha8b">
+        <dmn:inputEntry id="UnaryTests_0l00byy">
+          <dmn:text>list contains(ingredients, "mascarpone") and list contains(ingredients, "ladyfinger")and list contains(ingredients, "coffee")and list contains(ingredients, "sugar")and list contains(ingredients, "egg")</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="UnaryTests_1ub694f">
+          <dmn:text></dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="LiteralExpression_1ln7f4i">
+          <dmn:text>"Tiramisu"</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="DecisionRule_1ef34z4">
+        <dmn:inputEntry id="UnaryTests_1hua2dq">
+          <dmn:text>list contains(ingredients, "ricotta") and list contains(ingredients, "sugar")and list contains(ingredients, "flour")and list contains(ingredients, "egg")and list contains(ingredients, "oil")</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="UnaryTests_0qara23">
+          <dmn:text></dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="LiteralExpression_0lrks4w">
+          <dmn:text>"Ricotta Cake"</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="DecisionRule_00a7eag">
+        <dmn:inputEntry id="UnaryTests_11u5ih4">
+          <dmn:text>list contains(ingredients, "strawberry") and list contains(ingredients, "almonds")and list contains(ingredients, "flour")and list contains(ingredients, "sugar")and list contains(ingredients, "butter")</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="UnaryTests_0lv01ez">
+          <dmn:text></dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="LiteralExpression_09rhr6g">
+          <dmn:text>"Strawberry Almond Tart"</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="DecisionRule_19urnye">
+        <dmn:inputEntry id="UnaryTests_0umf9ua">
+          <dmn:text>list contains(ingredients, "peach") and list contains(ingredients, "sugar")and list contains(ingredients, "water")and list contains(ingredients, "lemon")</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="UnaryTests_0w0prud">
+          <dmn:text></dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="LiteralExpression_0im8soo">
+          <dmn:text>"Peach Compote"</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="DecisionRule_16fxzu5">
+        <dmn:inputEntry id="UnaryTests_163z06q">
+          <dmn:text>list contains(ingredients, "almonds") and list contains(ingredients, "sugar")and list contains(ingredients, "dark_chocolate")and list contains(ingredients, "oil")</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="UnaryTests_0a3p6mb">
+          <dmn:text></dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="LiteralExpression_0ph9n97">
+          <dmn:text>"Chocolate Almond Bark"</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+    </dmn:decisionTable>
+  </dmn:decision>
+  <dmn:inputData id="isCaloriesConcious" name="Is Calories Concious" />
+  <dmn:knowledgeSource id="mealsFile" name="Meals" />
+  <dmn:knowledgeSource id="ingredientsFile" name="Ingredients" />
+  <dmn:inputData id="isVegan" name="Is Vegan" />
+  <dmn:inputData id="isvegetarian" name="Is Vegetarian" />
+  <dmn:inputData id="isLactoseintolerant" name="Is Lactose Intolerant" />
+  <dmn:inputData id="isGlutenIntolerant" name="Is Gluten Intolerant" />
+  <dmn:inputData id="isAllergicToNuts" name="Is allergic to Nuts" />
+  <dmn:inputData id="isAllergicToEggs" name="Is allergic to Eggs" />
+  <dmn:inputData id="isAllergicToShellfish" name="Is allergic to Shellfish" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape id="DMNShape_1" dmnElementRef="ingredients_info">
+        <dc:Bounds height="80" width="180" x="450" y="170" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0l1hmu9" dmnElementRef="InformationRequirement_08kg6on">
+        <di:waypoint x="630" y="210" />
+        <di:waypoint x="740" y="210" />
+        <di:waypoint x="760" y="210" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1lo1xxp" dmnElementRef="mealsTable">
+        <dc:Bounds height="80" width="180" x="760" y="170" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_09wmt0m" dmnElementRef="isCaloriesConcious">
+        <dc:Bounds height="45" width="125" x="787" y="78" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1lja76o" dmnElementRef="InformationRequirement_03uhan4">
+        <di:waypoint x="850" y="123" />
+        <di:waypoint x="850" y="150" />
+        <di:waypoint x="850" y="170" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1i4t5r8" dmnElementRef="mealsFile">
+        <dc:Bounds height="63" width="100" x="800" y="289" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1ifi4kk" dmnElementRef="AuthorityRequirement_0rbqfql">
+        <di:waypoint x="850" y="289" />
+        <di:waypoint x="850" y="250" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1cmmf7v" dmnElementRef="ingredientsFile">
+        <dc:Bounds height="63" width="100" x="560" y="389" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0mpvou3" dmnElementRef="AuthorityRequirement_1c3fjv3">
+        <di:waypoint x="610" y="389" />
+        <di:waypoint x="610" y="250" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1drmjfo" dmnElementRef="isVegan">
+        <dc:Bounds height="45" width="125" x="547" y="77" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1f0ak19" dmnElementRef="isvegetarian">
+        <dc:Bounds height="45" width="125" x="417" y="78" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_04ol01f" dmnElementRef="InformationRequirement_00a0fhs">
+        <di:waypoint x="610" y="122" />
+        <di:waypoint x="570" y="150" />
+        <di:waypoint x="570" y="170" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_0aow7xy" dmnElementRef="InformationRequirement_05omh96">
+        <di:waypoint x="480" y="123" />
+        <di:waypoint x="510" y="150" />
+        <di:waypoint x="510" y="170" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1uo357o" dmnElementRef="isLactoseintolerant">
+        <dc:Bounds height="45" width="125" x="127" y="157" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1x122xv" dmnElementRef="isGlutenIntolerant">
+        <dc:Bounds height="45" width="125" x="147" y="217" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0zwoyfd" dmnElementRef="isAllergicToNuts">
+        <dc:Bounds height="45" width="125" x="167" y="277" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_10k59k4" dmnElementRef="isAllergicToEggs">
+        <dc:Bounds height="45" width="125" x="187" y="337" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_15fwve1" dmnElementRef="InformationRequirement_0y9pz7r">
+        <di:waypoint x="252" y="180" />
+        <di:waypoint x="430" y="197" />
+        <di:waypoint x="450" y="197" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_11mj95j" dmnElementRef="InformationRequirement_0167f86">
+        <di:waypoint x="272" y="240" />
+        <di:waypoint x="430" y="223" />
+        <di:waypoint x="450" y="223" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_00be412" dmnElementRef="InformationRequirement_0dzt3af">
+        <di:waypoint x="230" y="277" />
+        <di:waypoint x="495" y="270" />
+        <di:waypoint x="495" y="250" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_1tcndz3" dmnElementRef="InformationRequirement_0erau22">
+        <di:waypoint x="250" y="337" />
+        <di:waypoint x="540" y="270" />
+        <di:waypoint x="540" y="250" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1nfnqw2" dmnElementRef="isAllergicToShellfish">
+        <dc:Bounds height="45" width="125" x="207" y="398" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_049amyb" dmnElementRef="InformationRequirement_0rr4ecq">
+        <di:waypoint x="270" y="398" />
+        <di:waypoint x="585" y="270" />
+        <di:waypoint x="585" y="250" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</dmn:definitions>

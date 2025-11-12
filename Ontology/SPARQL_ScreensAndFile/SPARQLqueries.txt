@@ -1,0 +1,223 @@
+#############################################
+# 1. Retrieve Ingredients and Calories
+#############################################
+PREFIX pm: <http://example.org/pm#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+SELECT ?ingredient ?calories
+WHERE {
+    ?ingredient rdf:type pm:Ingredient ;
+                pm:ObjectHasName ?name ;
+                pm:IngredientHasCalories ?calories .
+}
+
+
+#############################################
+# 2. Retrieve the Total Calories of a Meal
+#############################################
+PREFIX pm: <http://example.org/pm#>
+
+SELECT ?meal (SUM(?calories) AS ?totalCalories)
+WHERE {
+    ?usage pm:IngredientUsageInMeal ?meal ;
+           pm:UsedIngredient ?ingredient ;
+           pm:IngredientUsageInGrams ?quantity .
+    
+    ?ingredient pm:IngredientHasCalories ?caloriesPer100Grams .
+    
+    BIND((?caloriesPer100Grams / 100.0) * ?quantity AS ?calories)
+}
+GROUP BY ?meal
+
+
+#############################################
+# 3. Retrieve Calorie-Conscious Meals (≤ 550 kcal)
+#############################################
+PREFIX pm: <http://example.org/pm#>
+
+SELECT ?meal (SUM(?calories) AS ?totalCalories)
+WHERE {
+    ?usage pm:IngredientUsageInMeal ?meal ;
+            pm:UsedIngredient ?ingredient ;
+            pm:IngredientUsageInGrams ?quantity .
+    
+    ?ingredient pm:IngredientHasCalories ?caloriesPer100Grams .
+    
+    BIND((?caloriesPer100Grams / 100.0) * ?quantity AS ?calories)
+}
+GROUP BY ?meal
+HAVING (SUM(?calories) <= 550)
+
+
+#############################################
+# 4. Retrieve Vegetarian Meals
+#############################################
+PREFIX pm: <http://example.org/pm#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+SELECT DISTINCT ?meal
+WHERE {
+  ?meal rdf:type pm:Meal .
+  FILTER NOT EXISTS {
+    ?usage pm:IngredientUsageInMeal ?meal ;
+           pm:UsedIngredient ?ingredient .
+    ?ingredient pm:IngredientNotCompatibleWithFoodTypePreference pm:vegetarian .
+  }
+}
+
+
+#############################################
+# 5. Retrieve Lactose-Free Meals
+#############################################
+PREFIX pm: <http://example.org/pm#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+SELECT DISTINCT ?meal
+WHERE {
+  ?meal rdf:type pm:Meal .
+  FILTER NOT EXISTS {
+    ?usage pm:IngredientUsageInMeal ?meal ;
+           pm:UsedIngredient ?ingredient .
+    ?ingredient pm:IngredientNotCompatibleWithFoodTypePreference pm:avoidDairy .
+  }
+}
+
+
+#############################################
+# 6. Retrieve Gluten-Free Meals
+#############################################
+PREFIX pm: <http://example.org/pm#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+SELECT DISTINCT ?meal
+WHERE {
+  ?meal rdf:type pm:Meal .
+  FILTER NOT EXISTS {
+    ?usage pm:IngredientUsageInMeal ?meal ;
+           pm:UsedIngredient ?ingredient .
+    ?ingredient pm:IngredientNotCompatibleWithFoodTypePreference pm:avoidGluten .
+  }
+}
+
+
+#############################################
+# 7. Retrieve Calorie-Conscious Vegetarian Meals
+#############################################
+PREFIX pm: <http://example.org/pm#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+SELECT ?meal (SUM(?calories) AS ?totalCalories)
+WHERE {
+  ?meal rdf:type pm:Meal .
+  ?usage pm:IngredientUsageInMeal ?meal ;
+         pm:UsedIngredient ?ingredient ;
+         pm:IngredientUsageInGrams ?quantity .
+  
+  ?ingredient pm:IngredientHasCalories ?caloriesPer100Grams .
+  
+  BIND((?caloriesPer100Grams / 100.0) * ?quantity AS ?calories)
+  
+  FILTER NOT EXISTS {
+    ?nonVegUsage pm:IngredientUsageInMeal ?meal ;
+                 pm:UsedIngredient ?nonVegIngredient .
+    ?nonVegIngredient pm:IngredientNotCompatibleWithFoodTypePreference pm:vegetarian .
+  }
+}
+GROUP BY ?meal
+HAVING (SUM(?calories) <= 550)
+
+
+#############################################
+# 8. Retrieve Gluten and Lactose-Free Meals
+#############################################
+PREFIX pm: <http://example.org/pm#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+SELECT DISTINCT ?meal
+WHERE {
+  ?meal rdf:type pm:Meal .
+  FILTER NOT EXISTS {
+    ?usage pm:IngredientUsageInMeal ?meal ;
+           pm:UsedIngredient ?ingredient .
+    ?ingredient pm:IngredientNotCompatibleWithFoodTypePreference pm:avoidDairy .
+  }
+  FILTER NOT EXISTS {
+    ?usage pm:IngredientUsageInMeal ?meal ;
+           pm:UsedIngredient ?ingredient .
+    ?ingredient pm:IngredientNotCompatibleWithFoodTypePreference pm:avoidGluten .
+  }
+}
+
+#############################################
+# 9. Retrieve Meals with Food Preferences and Calories
+#############################################
+PREFIX pm: <http://example.org/pm#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+SELECT ?meal ?preference ?calories
+WHERE {
+    ?meal rdf:type pm:Meal ;
+          pm:MealNotCompatibleWithFoodPreference ?preference ;
+          pm:MealHasCalories ?calories .
+}
+
+
+
+#############################################
+# From this point on, I define a set of SPARQL Update queries 
+# that are not strictly necessary for the current ontology, 
+# since it is already complete, but could be useful for future expansions.
+# These queries allow the ontology to be automatically enriched 
+# when new meals or ingredient usages are added, for example 
+# by recalculating calories or dynamically marking meals as 
+# incompatible with certain dietary preferences.
+#############################################
+
+#############################################
+# 10. Insert Total Calories of Meal in the Ontology
+#############################################
+PREFIX pm: <http://example.org/pm#>
+
+INSERT {
+    ?meal pm:MealHasCalories ?totalCalories .
+}
+WHERE {
+    SELECT ?meal (SUM(?calories) AS ?totalCalories)
+    WHERE {
+        ?usage pm:IngredientUsageInMeal ?meal ;
+               pm:UsedIngredient ?ingredient ;
+               pm:IngredientUsageInGrams ?quantity .
+
+        ?ingredient pm:IngredientHasCalories ?caloriesPer100Grams .
+
+        BIND((?caloriesPer100Grams / 100.0) * ?quantity AS ?calories)
+    }
+    GROUP BY ?meal
+}
+
+
+#############################################
+# 11. Insert Calorie-Conscious Restriction (≥ 550 kcal)
+#############################################
+PREFIX pm: <http://example.org/pm#>
+
+INSERT {
+    ?meal pm:MealNotCompatibleWithFoodPreference pm:Calorie_Conscious .
+}
+WHERE {
+    SELECT ?meal (SUM(?calories) AS ?totalCalories)
+    WHERE {
+        ?usage pm:IngredientUsageInMeal ?meal ;
+               pm:UsedIngredient ?ingredient ;
+               pm:IngredientUsageInGrams ?quantity .
+
+        ?ingredient pm:IngredientHasCalories ?caloriesPer100Grams .
+
+        BIND((?caloriesPer100Grams / 100.0) * ?calories AS ?calories)
+    }
+    GROUP BY ?meal
+    HAVING (?totalCalories >= 550)
+}
+
+
+
